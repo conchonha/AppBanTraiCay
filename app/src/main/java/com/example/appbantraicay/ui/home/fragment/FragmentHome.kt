@@ -1,10 +1,11 @@
-package com.example.appbantraicay.ui;
+package com.example.appbantraicay.ui.home.fragment;
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.HomeFragmentBinding
+import com.example.appbantraicay.ui.home.HomeViewModel
 import com.sangtb.androidlibrary.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 */
 
 @AndroidEntryPoint
-class FragmentHome : BaseFragment<HomeFragmentBinding,HomeViewModel>() {
+class FragmentHome : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
     override val layoutId: Int
         get() = R.layout.home_fragment
     override val viewModel: HomeViewModel by viewModels()

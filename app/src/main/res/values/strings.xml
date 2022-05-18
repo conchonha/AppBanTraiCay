@@ -2,7 +2,7 @@
     <string name="app_name">AppBanTraiCay</string>
     <string name="title_loading">Loading</string>
     <string name="menu">Menu</string>
-    <string name="cart">Cart</string>
+    <string name="cart">%d Cart</string>
     <string name="news">News</string>
     <string name="account">Account</string>
     <string name="order">Order</string>

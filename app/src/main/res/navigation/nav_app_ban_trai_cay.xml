@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.example.appbantraicay.ui.FragmentHome"
+        android:name="com.example.appbantraicay.ui.home.fragment.FragmentHome"
         android:label="FragmentHome" />
 </navigation>

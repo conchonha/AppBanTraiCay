@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-anydpi/ic_cart.xml" value="0.112" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-anydpi/ic_menu.xml" value="0.1" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/activity_main.xml" value="0.1334853090172239" />
+        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/banner_fragment.xml" value="0.136" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/dialog_loading.xml" value="0.18645833333333334" />
-        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/home_fragment.xml" value="0.264" />
+        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/home_fragment.xml" value="0.2" />
+        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/item_banner_home.xml" value="0.12239583333333333" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/layout_header_menu.xml" value="0.264" />
       </map>
     </option>
