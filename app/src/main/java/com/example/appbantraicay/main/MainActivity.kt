@@ -11,6 +11,7 @@ import com.example.appbantraicay.data.repository.Repository
 import com.example.appbantraicay.ui.dialog.LoadingDialog
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import javax.inject.Singleton
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val dialog by lazy { LoadingDialog() }
 
     @Inject
+    @Singleton
     lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
