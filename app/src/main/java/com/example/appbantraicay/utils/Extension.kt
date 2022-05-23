@@ -11,6 +11,6 @@ import com.example.appbantraicay.R
 */
 @BindingAdapter("setImageUrl")
 fun setUrlImage(imageView: ImageView, src: String) {
-    Glide.with(imageView.context).load(src).error(R.drawable.img_error).placeholder(R.drawable.img_city)
+    P.with(imageView.context).load(src).error(R.drawable.img_error).placeholder(R.drawable.img_city)
         .into(imageView)
 }

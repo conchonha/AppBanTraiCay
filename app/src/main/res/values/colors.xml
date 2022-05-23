@@ -10,4 +10,15 @@
     <color name="hff1744">#ff1744</color>
     <color name="hFFC107">#FFC107</color>
     <color name="h4CAF50">#4CAF50</color>
+    <color name="color_f5f5fa">#f5f5fa</color>
+    <color name="color_004343">#004343</color>
+    <color name="color_36907a">#36907a</color>
+    <color name="color_6bd6ab">#6bd6ab</color>
+    <color name="color_82a3a3">#82a3a3</color>
+    <color name="color_096565">#096565</color>
+    <color name="color_145252">#145252</color>
+    <color name="color_77e6b6">#77e6b6</color>
+    <color name="hF12A6D">#F12A6D</color>
+    <color name="hD57496">#D57496</color>
+    <color name="color_button">#E06C78</color>
 </resources>

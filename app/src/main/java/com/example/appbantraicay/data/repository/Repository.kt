@@ -41,7 +41,6 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
         jog =
             CoroutineScope(Dispatchers.IO + SupervisorJob() + CoroutineExceptionHandler { _, throwable ->
                 toastError.postValue(throwable.message)
-                Log.d(TAG, "onCreate: ${throwable.message}")
             }).launch {
                 //get List Quảng Cáo
                 _listAdvertisement.postValue(apiServices.getDataAdvertisement())

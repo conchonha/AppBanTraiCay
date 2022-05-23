@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AppBanTraiCay/app/src/main/res/drawable/bg_home_button.xml" value="0.133" />
+        <entry key="..\:/AppBanTraiCay/app/src/main/res/layout/fragment_admin.xml" value="0.6145251396648045" />
+        <entry key="..\:/AppBanTraiCay/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/AppBanTraiCay/app/src/main/res/layout/home_fragment.xml" value="0.2359375" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-anydpi/ic_cart.xml" value="0.112" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-anydpi/ic_menu.xml" value="0.1" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/activity_main.xml" value="0.1334853090172239" />
