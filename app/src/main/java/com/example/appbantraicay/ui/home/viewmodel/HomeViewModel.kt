@@ -29,12 +29,12 @@ class HomeViewModel @Inject constructor(
     application: Application,
     private val repository: Repository
 ) : BaseViewModel(application), IActionMenuHeader {
-    val listAdvertisement: LiveData<List<Advertisement>>
-        get() = repository.listAdvertisement.combine(_productNew){listItem,product->
-            if(product != null){
-                val list = product.hin
+    val listAdvertisement: LiveData<List<Pair<Int?, String?>>>
+        get() = repository.listAdvertisement.combine(_productNew) { listItem, product ->
+            if (product != null) {
+                return@combine product.hinhMoTa?.split("@")?.map { Pair(-1, it) } ?: listOf()
             }
-            listItem
+            listItem.map { Pair(it.id, it.hinhAnhSanPham) }
         }
 
     val listProductCategory = repository.listProductCategory

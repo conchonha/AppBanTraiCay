@@ -7,4 +7,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
+
 }

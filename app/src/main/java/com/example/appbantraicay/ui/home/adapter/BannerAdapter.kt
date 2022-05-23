@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 class BannerAdapter @Inject constructor() :
-    BaseRecyclerViewAdapter<Advertisement, ItemBannerHomeBinding>() {
+    BaseRecyclerViewAdapter<Pair<Int?,String?>, ItemBannerHomeBinding>() {
 
     override fun getItemCount(): Int {
         return items.size
@@ -19,7 +19,7 @@ class BannerAdapter @Inject constructor() :
         get() = R.layout.item_banner_home
 
     override fun onBindViewHolder(holder: BaseViewHolder<ItemBannerHomeBinding>, position: Int) {
-        holder.binding.url = items[position].hinhAnh
+        holder.binding.url = items[position].second
         holder.binding.root.setOnClickListener {
             listener?.invoke(holder.itemView, items[position], position)
         }
