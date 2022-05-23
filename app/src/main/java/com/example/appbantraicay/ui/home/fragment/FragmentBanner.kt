@@ -3,7 +3,6 @@ package com.example.appbantraicay.ui.home.fragment;
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -56,20 +55,25 @@ class FragmentBanner : BaseFragment<BannerFragmentBinding, HomeViewModel>() {
 
     private fun autoSlideViewpager() {
        binding.apply {
-           if (viewpagerBanner.adapter?.itemCount == null || viewpagerBanner.adapter?.itemCount == 0) return
+           if (viewpagerBanner.adapter?.itemCount == null || viewpagerBanner.adapter?.itemCount == DEFAULT_VALUE) return
 
-           var currentItem = 0
+           var currentItem = DEFAULT_VALUE
            val handler = Handler(Looper.getMainLooper())
            runnable = Runnable {
                currentItem = viewpagerBanner.currentItem
                currentItem++
-               if (currentItem >= viewpagerBanner.adapter?.itemCount ?: 0) {
-                   currentItem = 0
+               if (currentItem >= viewpagerBanner.adapter?.itemCount ?: DEFAULT_VALUE) {
+                   currentItem = DEFAULT_VALUE
                }
                viewpagerBanner.setCurrentItem(currentItem, true)
-               handler.postDelayed(runnable, 3000)
+               handler.postDelayed(runnable, DURATION_TIME)
            }
-           handler.postDelayed(runnable, 3000)
+           handler.postDelayed(runnable, DURATION_TIME)
        }
+    }
+
+    companion object{
+        private const val DEFAULT_VALUE = 0
+        private const val DURATION_TIME = 3000L
     }
 }

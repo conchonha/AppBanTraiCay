@@ -5,6 +5,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.appbantraicay.common.BaseRepository1
 import com.example.appbantraicay.data.model.Advertisement
 import com.example.appbantraicay.data.model.Category
 import com.example.appbantraicay.data.model.ProductNew
@@ -21,8 +22,12 @@ import javax.inject.Singleton
 
 @Singleton
 class Repository @Inject constructor(private val apiServices: ApiServices) :
-    DefaultLifecycleObserver, IActionRepository {
-    private var jog: Job? = null
+    DefaultLifecycleObserver, IActionRepository, BaseRepository1() {
+    private val coroutineScope = CoroutineScope(Dispatchers.IO + CoroutineExceptionHandler { _, throwable ->
+        toastManager.errorThrowable.postValue(throwable)
+        toastManager.loadingDialog.postValue(false)
+    })
+    private var jog : Job? = null
 
     private val _listAdvertisement = MutableLiveData<List<Advertisement>>()
     override val listAdvertisement: LiveData<List<Advertisement>>
@@ -32,31 +37,44 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
     override val listProductCategory: LiveData<List<Pair<Category?, List<ProductNew>?>>>
         get() = _listProductCategory
 
-    override val toastError = SingleLiveEvent<String>()
-    override val loadingDialog: SingleLiveEvent<Boolean> = SingleLiveEvent()
-
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
-        loadingDialog.postValue(true)
-        jog =
-            CoroutineScope(Dispatchers.IO + SupervisorJob() + CoroutineExceptionHandler { _, throwable ->
-                toastError.postValue(throwable.message)
-            }).launch {
-                //get List Quảng Cáo
-                _listAdvertisement.postValue(apiServices.getDataAdvertisement())
+//        loadingDialog.postValue(true)
+        jog = coroutineScope.launch {
+          safeApiCall({apiServices.getDataAdvertisement()},{apiServices.getDataProductNew()},{apiServices.getDataCategory()})?.let {
+              Log.d("SangTB", "onCreate ABC: $it")
+          }
 
-                //get List Category and listProduct
-                val pairList = mutableListOf<Pair<Category?,List<ProductNew>?>>()
-                pairList.add(Pair(Category(id = -1),apiServices.getDataProductNew()))
+//            //get List Quảng Cáo
+//            Log.d(TAG, "onCreate0: ")
+//            _listAdvertisement.postValue(apiServices.getDataAdvertisement())
+//
+//            Log.d(TAG, "onCreate1: ")
+//            //get List Category and listProduct
+//            val pairList = mutableListOf<Pair<Category?, List<ProductNew>?>>()
+//            pairList.add(Pair(Category(id = -1), apiServices.getDataProductNew()))
+//
+//            Log.d(TAG, "onCreate2: ")
+//            // get list Category
+//            apiServices.getDataCategory().forEach { category ->
+//                pairList.add(
+//                    Pair(
+//                        category,
+//                        apiServices.getDataProductCategory(category.id.toString())
+//                    )
+//                )
+//                _listProductCategory.postValue(pairList.toMutableList())
+//            }
+//
+//            Log.d(TAG, "onCreate3: ")
+//            loadingDialog.postValue(false)
+        }
+    }
 
-                apiServices.getDataCategory().forEach {category->
-                    pairList.add(Pair(category,apiServices.getDataProductCategory(category.id.toString())))
-                    _listProductCategory.postValue(pairList.toMutableList())
-                }
-
-                loadingDialog.postValue(false)
-            }
-
+    override fun insertCart(idUser: Int, idProduct: Int, price: Int) {
+        jog = coroutineScope.launch {
+            apiServices.insertCart(idUser,idProduct,price)
+        }
     }
 
     override fun onDestroy(owner: LifecycleOwner) {

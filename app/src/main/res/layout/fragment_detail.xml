@@ -80,14 +80,6 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/detail_image"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textSize="@dimen/_16ssp"
-                    android:textStyle="bold"/>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

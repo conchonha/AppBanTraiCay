@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.appbantraicay.R
@@ -29,22 +30,27 @@ class HomeViewModel @Inject constructor(
     application: Application,
     private val repository: Repository
 ) : BaseViewModel(application), IActionMenuHeader {
-    val listAdvertisement: LiveData<List<Pair<Int?, String?>>>
-        get() = repository.listAdvertisement.combine(_productNew) { listItem, product ->
-            if (product != null) {
-                return@combine product.hinhMoTa?.split("@")?.map { Pair(-1, it) } ?: listOf()
-            }
-            listItem.map { Pair(it.id, it.hinhAnhSanPham) }
-        }
-
-    val listProductCategory = repository.listProductCategory
-
     private val _productNew = MutableLiveData<ProductNew>()
     val productNew: LiveData<ProductNew>
         get() = _productNew
 
+    val listAdvertisement: LiveData<List<Pair<Int?, String?>>> =
+        MediatorLiveData<List<Pair<Int?, String?>>>().apply {
+            addSource(repository.listAdvertisement) { Advertisement ->
+                value = Advertisement.map { Pair(it.id, it.hinhAnhSanPham) }
+            }
+
+            addSource(_productNew) { product ->
+                product.hinhMoTa?.split("@")?.map { Pair(-1, it) }?.let {
+                    value = it
+                }
+            }
+        }
+
+    val listProductCategory = repository.listProductCategory
+
     override fun onClickItemTitle(itemTitleId: Int) {
-        Log.d(TAG, "onClickItemTitle: ")
+        Log.d(TAG, "onClickItemTitle Header Menu: ")
     }
 
     override val actionItemAdapter: IActionItemAdapter
@@ -55,13 +61,13 @@ class HomeViewModel @Inject constructor(
 
             override fun onClickDetail(product: ProductNew) {
                 _productNew.postValue(product)
-                navigate()
+                navigate(R.id.action_fragmentHome_to_fragmentDetail)
             }
         }
 
-    private fun navigate(bundle: Bundle? = null) {
+    private fun navigate(actionId : Int, bundle: Bundle? = null) {
         viewModelScope.launch {
-            evenSender.send(AppEvent.OnNavigation(R.id.action_fragmentHome_to_fragmentDetail))
+            evenSender.send(AppEvent.OnNavigation(actionId))
         }
     }
 
@@ -70,7 +76,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onSeeCart() {
-
+//        repository.insertCart()
     }
 
 }

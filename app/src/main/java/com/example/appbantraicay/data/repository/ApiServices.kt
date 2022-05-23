@@ -27,4 +27,12 @@ interface ApiServices {
 
     @GET("model/danhmuc/getdatalaptopmoinhat")
     suspend fun getDataProductNew(): List<ProductNew>
+
+    @FormUrlEncoded
+    @POST("model/giohang/postgiohang")
+    suspend fun insertCart(
+        @Field("iduser") idUser: Int,
+        @Field("idsanpham") idProduct: Int,
+        @Field("giasp") price: Int
+    ): String
 }
