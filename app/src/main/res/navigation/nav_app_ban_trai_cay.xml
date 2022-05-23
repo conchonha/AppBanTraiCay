@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/fragmentHome"
         android:name="com.example.appbantraicay.ui.home.fragment.FragmentHome"
-        android:label="FragmentHome" />
+        android:label="FragmentHome" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentDetail"
+            app:destination="@id/fragmentDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetail"
+        android:name="com.example.appbantraicay.ui.detail.FragmentDetail"
+        android:label="FragmentDetail" />
 </navigation>

@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="action"
-            type="com.son.finalproject.ui.home.viewmodels.HomeViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,11 +30,10 @@
                 android:layout_marginEnd="91dp"
                 android:textColor="@color/black"
                 android:textSize="30sp"
-                android:text="@{action.homeData.fullName}"
                 app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Hello, Nam Tran" />
+                tools:text="Hello, SangTB" />
 
             <TextView
                 android:id="@+id/date_time"
@@ -45,7 +42,6 @@
                 android:layout_marginTop="16dp"
                 android:textColor="@color/color_36907a"
                 android:textSize="20sp"
-                android:text="@{action.homeData.dateTime}"
                 app:layout_constraintStart_toStartOf="@+id/welcome_user"
                 app:layout_constraintTop_toBottomOf="@+id/welcome_user"
                 tools:text="Monday, 17 jan 2022" />
@@ -84,7 +80,6 @@
             <TextView
                 android:id="@+id/textView"
                 style="@style/HomeNumber"
-                android:text="@{String.valueOf(action.homeData.requestPending)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="15"/>
@@ -100,7 +95,6 @@
                 android:id="@+id/textView2"
                 style="@style/HomeNumber"
                 android:layout_marginBottom="148dp"
-                android:text="@{String.valueOf(action.homeData.requestAccept)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/line1"
                 tools:text="15"/>
@@ -118,7 +112,6 @@
                 android:id="@+id/textView3"
                 style="@style/HomeNumber"
                 android:layout_marginBottom="148dp"
-                android:text="@{String.valueOf(action.homeData.assetsAvaiable)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/line2"
                 tools:text="15"/>
@@ -137,7 +130,6 @@
         <LinearLayout
             android:id="@+id/linearLayout1"
             style="@style/StatusLayout"
-            android:onClick="@{()->action.onClickAsset()}"
             android:layout_marginTop="336dp"
             app:layout_constraintEnd_toStartOf="@id/linearLayout2"
             app:layout_constraintStart_toStartOf="parent"
@@ -265,7 +257,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_home_button"
-            android:backgroundTint="@color/color_button"
+            android:backgroundTint="@color/color_004343"
             android:text="kjdkjk"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

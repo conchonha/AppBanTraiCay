@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_125sdp"
+            setImageUrl="@{product.hinhAnhSanPham}"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_cart"
+            android:layout_width="@dimen/_30sdp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_height="@dimen/_30sdp"
+            android:onClick="@{()->action.onClickBuyCart(product)}"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="#34000000"
+            android:src="@drawable/ic_cart"
+            app:layout_constraintLeft_toLeftOf="@id/img_product"
+            app:layout_constraintTop_toBottomOf="@+id/txt_price" />
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text='@{String.valueOf(product.gia)+" VND"}'
+            android:textColor="@color/purple_700"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/img_product"
+            app:layout_constraintRight_toRightOf="@+id/img_product"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@{product.tenSanPham}"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintLeft_toLeftOf="@+id/img_product"
+            app:layout_constraintRight_toRightOf="@+id/img_product"
+            app:layout_constraintTop_toBottomOf="@+id/img_product" />
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:background="#34000000"
+            android:gravity="center"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/detail"
+            android:onClick="@{()->action.onClickDetail(product)}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_cart"
+            app:layout_constraintLeft_toRightOf="@+id/img_cart"
+            app:layout_constraintRight_toRightOf="@+id/img_product" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.appbantraicay.data.model.ProductNew" />
+        <variable
+            name="action"
+            type="com.example.appbantraicay.ui.home.adapter.IActionItemAdapter" />
+    </data>
+</layout>

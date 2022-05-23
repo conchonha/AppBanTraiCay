@@ -65,17 +65,6 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
         super.onDestroy(owner)
     }
 
-    suspend fun <T> safeApiCall(apiCall: suspend () -> T): Result<T> {
-        return withContext(Dispatchers.IO) {
-            try {
-                Result.success(apiCall.invoke())
-            } catch (throwable: Throwable) {
-                Log.d(TAG, "safeApiCall: ${throwable.message}")
-                Result.failure(throwable)
-            }
-        }
-    }
-
     companion object {
         private const val TAG = "Repository"
     }

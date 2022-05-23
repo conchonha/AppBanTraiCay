@@ -9,30 +9,72 @@ import com.google.gson.annotations.SerializedName
 */
 
 data class ProductNew(
-    @field:Expose @field:SerializedName("Id") var id: Int,
-    @field:Expose @field:SerializedName(
-        "TenSanPham"
-    ) var tenSanPham: String,
-    @field:Expose @field:SerializedName("HinhAnhSanPham") var hinhAnhSanPham: String,
-    @field:Expose @field:SerializedName(
-        "ThongSoKyThuat"
-    ) var thongSoKyThuat: String,
-    @field:Expose @field:SerializedName("Gia") var gia: Int,
-    @field:Expose @field:SerializedName(
-        "NgayKhuyenMai"
-    ) var ngayKhuyenMai: String,
-    @field:Expose @field:SerializedName("GiamGia") var giamGia: Int,
-    @field:Expose @field:SerializedName(
-        "DanhGiaSao"
-    ) var danhGiaSao: String,
-    @field:Expose @field:SerializedName("Loai") var loai: String
+    @SerializedName("Id") @Expose
+    var id: Int? = null,
+
+    @SerializedName("TenSanPham")
+    @Expose
+    var tenSanPham: String? = null,
+
+    @SerializedName("HinhAnhSanPham")
+    @Expose
+    var hinhAnhSanPham: String? = null,
+
+    @SerializedName("Gia")
+    @Expose
+    var gia: Int? = null,
+
+    @SerializedName("NgayKhuyenMai")
+    @Expose
+    var ngayKhuyenMai: String? = null,
+
+    @SerializedName("GiamGia")
+    @Expose
+    var giamGia: Int? = null,
+
+    @SerializedName("DanhGiaSao")
+    @Expose
+    var danhGiaSao: String? = null,
+
+    @SerializedName("Loai")
+    @Expose
+    var loai: String? = null,
+
+    @SerializedName("HinhMoTa")
+    @Expose
+    var hinhMoTa: String? = null,
+
+    @SerializedName("Mota")
+    @Expose
+    var mota: String? = null,
+
+    @SerializedName("SoLuong")
+    @Expose
+    var soLuong: Int? = null,
+
+    @SerializedName("NgayDang")
+    @Expose
+    var ngayDang: String? = null,
+
+    @SerializedName("ThongSoKyThuat")
+    @Expose
+    var thongSoKyThuat: String? = null,
+
+    @SerializedName("id_danhmuc") @Expose
+    var idDanhmuc: Int? = null
 ) {
 
-    @SerializedName("id_danhmuc")
-    @Expose
-    var idDanhmuc: Int? = null
 
-    override fun toString(): String {
-        return "id: $id \n tenSanPham: $tenSanPham \n thongSoKyThuat: $thongSoKyThuat\n ngayKhuyenMai: $ngayKhuyenMai \n danhGiaSao: $danhGiaSao"
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return (other as? ProductNew)?.let {
+            tenSanPham == it.tenSanPham && thongSoKyThuat == it.thongSoKyThuat
+                    && ngayKhuyenMai == it.ngayKhuyenMai && giamGia == it.giamGia
+                    && gia == it.gia && soLuong == it.soLuong && idDanhmuc == it.idDanhmuc
+                    && ngayDang == it.ngayDang && mota == it.mota && hinhMoTa == it.hinhMoTa
+        } ?: false
     }
 }

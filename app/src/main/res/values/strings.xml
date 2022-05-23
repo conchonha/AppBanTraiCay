@@ -7,5 +7,16 @@
     <string name="account">Account</string>
     <string name="order">Order</string>
     <string name="search">Search</string>
+    <string name="detail">Detail</string>
+    <string name="new_product">New product</string>
+    <string name="buy_now">Buy now</string>
+    <string name="see_cart">See cart</string>
+    <string name="detail_image">Detail image</string>
+    <string name="related_products">Related products</string>
     <string name="reports">Report</string>
+    <string name="request_pending">Request Pending</string>
+    <string name="request_complete">Request Complex</string>
+    <string name="assets_avaiable">Assets Avaiable</string>
+    <string name="assets">Assets</string>
+    <string name="requests">Request</string>
 </resources>

@@ -2,12 +2,16 @@ package com.example.appbantraicay.ui.home.fragment;
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.HomeFragmentBinding
-import com.example.appbantraicay.ui.home.HomeViewModel
+import com.example.appbantraicay.ui.home.viewmodel.HomeViewModel
+import com.example.appbantraicay.ui.home.adapter.AdapterRecyclerHome
 import com.sangtb.androidlibrary.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /*
     Copyright © 2022 UITS CO.,LTD
@@ -18,10 +22,25 @@ import dagger.hilt.android.AndroidEntryPoint
 class FragmentHome : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
     override val layoutId: Int
         get() = R.layout.home_fragment
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel: HomeViewModel by activityViewModels()
+
+    @Inject
+    @Singleton
+    lateinit var adapterMenu : AdapterRecyclerHome
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapterMenu.actionItemCart = viewModel.actionItemAdapter
         binding.viewModel = viewModel
+
+        binding.recyclerBody.apply {
+            adapter = adapterMenu
+            isNestedScrollingEnabled = false
+        }
+
+        viewModel.listProductCategory.observe(viewLifecycleOwner){
+            adapterMenu.updateItems(it.toMutableList())
+        }
+
     }
 }
