@@ -19,4 +19,9 @@
     <string name="assets_avaiable">Assets Avaiable</string>
     <string name="assets">Assets</string>
     <string name="requests">Request</string>
+    <string name="title_account">Account</string>
+    <string name="title_product">Product</string>
+    <string name="title_order">Order</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

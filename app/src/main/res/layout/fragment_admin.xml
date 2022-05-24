@@ -5,6 +5,11 @@
 
     <data>
 
+        <import type="com.example.appbantraicay.utils.TitleId" />
+
+        <variable
+            name="action"
+            type="com.example.appbantraicay.ui.admin.AdminViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -82,7 +87,7 @@
                 style="@style/HomeNumber"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="15"/>
+                tools:text="15" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -97,7 +102,7 @@
                 android:layout_marginBottom="148dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/line1"
-                tools:text="15"/>
+                tools:text="15" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -114,7 +119,7 @@
                 android:layout_marginBottom="148dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/line2"
-                tools:text="15"/>
+                tools:text="15" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -131,6 +136,7 @@
             android:id="@+id/linearLayout1"
             style="@style/StatusLayout"
             android:layout_marginTop="336dp"
+            android:onClick="@{() -> action.onNavigate(TitleId.TITLE_ACCOUNT)}"
             app:layout_constraintEnd_toStartOf="@id/linearLayout2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -151,7 +157,8 @@
 
             <TextView
                 style="@style/StatusName"
-                android:text="@string/assets" />
+                android:text="@string/title_account"
+                tools:text="Tài KHoản" />
 
             <TextView
                 style="@style/StatusContent"
@@ -161,6 +168,7 @@
         <LinearLayout
             android:id="@+id/linearLayout2"
             style="@style/StatusLayout"
+            android:onClick="@{() -> action.onNavigate(TitleId.TITLE_PRODUCT)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/linearLayout1"
             app:layout_constraintTop_toTopOf="@+id/linearLayout1">
@@ -181,8 +189,8 @@
 
             <TextView
                 style="@style/StatusName"
-                android:text="@{}"
-                tools:text="assignment"/>
+                android:text="@string/title_product"
+                tools:text="Sản Phẩm" />
 
             <TextView
                 style="@style/StatusContent"
@@ -193,6 +201,7 @@
             android:id="@+id/linearLayout3"
             style="@style/StatusLayout"
             android:layout_marginTop="28dp"
+            android:onClick="@{() -> action.onNavigate(TitleId.TITLE_ORDER)}"
             app:layout_constraintEnd_toStartOf="@id/linearLayout4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
@@ -213,7 +222,8 @@
 
             <TextView
                 style="@style/StatusName"
-                android:text="@string/requests" />
+                android:text="@string/title_order"
+                tools:text="Đơn Hàng" />
 
             <TextView
                 style="@style/StatusContent"
@@ -224,6 +234,7 @@
             android:id="@+id/linearLayout4"
             style="@style/StatusLayout"
             android:layout_marginStart="4dp"
+            android:onClick="@{() -> action.onNavigate(TitleId.TITLE_REPORTS)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/linearLayout3"
             app:layout_constraintTop_toTopOf="@+id/linearLayout3">
@@ -244,7 +255,8 @@
 
             <TextView
                 style="@style/StatusName"
-                android:text="@string/reports" />
+                android:text="@string/reports"
+                tools:text="bảng tin" />
 
             <TextView
                 style="@style/StatusContent"
@@ -252,15 +264,17 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/thongKe"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/bg_home_button"
             android:backgroundTint="@color/color_004343"
-            android:text="kjdkjk"
+            android:text="Thống Kê"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.039"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
     </androidx.constraintlayout.widget.ConstraintLayout>

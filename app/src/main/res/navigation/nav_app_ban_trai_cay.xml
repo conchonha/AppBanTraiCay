@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_app_ban_trai_cay"
-    app:startDestination="@id/fragmentHome">
+    app:startDestination="@id/adminFragment">
 
     <fragment
         android:id="@+id/fragmentHome"
         android:name="com.example.appbantraicay.ui.home.fragment.FragmentHome"
-        android:label="FragmentHome" >
+        android:label="FragmentHome">
         <action
             android:id="@+id/action_fragmentHome_to_fragmentDetail"
             app:destination="@id/fragmentDetail" />
@@ -16,4 +16,42 @@
         android:id="@+id/fragmentDetail"
         android:name="com.example.appbantraicay.ui.detail.FragmentDetail"
         android:label="FragmentDetail" />
+
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.appbantraicay.ui.admin.Admin"
+        android:label="Admin">
+        <action
+            android:id="@+id/action_adminFragment_to_orderFragment"
+            app:destination="@+id/orderFragment" />
+
+        <action
+            android:id="@+id/action_adminFragment_to_productFragment"
+            app:destination="@+id/productFragment" />
+
+        <action
+            android:id="@+id/action_adminFragment_to_reportFragment"
+            app:destination="@+id/reportFragment" />
+
+        <action
+            android:id="@+id/action_adminFragment_to_accountFragment"
+            app:destination="@+id/accountFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.example.appbantraicay.ui.admin.OrderFragment"
+        android:label="OrderFragment" />
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.appbantraicay.ui.admin.ProductFragment"
+        android:label="ProductFragment" />
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.example.appbantraicay.ui.admin.ReportFragment"
+        android:label="ReportFragment" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.appbantraicay.ui.admin.AccountFragment"
+        android:label="AccountFragment" />
 </navigation>
