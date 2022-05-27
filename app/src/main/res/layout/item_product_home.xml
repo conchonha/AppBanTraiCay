@@ -11,7 +11,7 @@
             android:id="@+id/img_product"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_125sdp"
-            setImageUrl="@{product.hinhAnhSanPham}"
+            setImageUrl="@{product.image}"
             android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="1"
-            android:text='@{String.valueOf(product.gia)+" VND"}'
+            android:text='@{String.valueOf(product.price)+" VND"}'
             android:textColor="@color/purple_700"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold"
@@ -50,7 +50,7 @@
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="1"
-            android:text="@{product.tenSanPham}"
+            android:text="@{product.nameProduct}"
             android:padding="@dimen/_5sdp"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintLeft_toLeftOf="@+id/img_product"
@@ -78,9 +78,9 @@
 
         <variable
             name="product"
-            type="com.example.appbantraicay.data.model.ProductNew" />
+            type="com.example.appbantraicay.data.model.responses.ProductNew" />
         <variable
             name="action"
-            type="com.example.appbantraicay.ui.home.adapter.IActionItemAdapter" />
+            type="com.example.appbantraicay.ui.user.interfaces.IActionItemAdapter" />
     </data>
 </layout>

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.appbantraicay.ui.home.viewmodel.HomeViewModel" />
+            type="com.example.appbantraicay.ui.user.viewmodel.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
             android:paddingHorizontal="@dimen/_10sdp"
             android:orientation="vertical"
             android:paddingBottom="@dimen/_10ssp"
-            android:paddingTop="@dimen/_20sdp">
+            android:paddingTop="@{Float.valueOf(viewModel.heightStatusBar)+  @dimen/_10sdp}">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:layout_height="@dimen/_225sdp"
             android:id="@+id/banner"
             android:layout_marginTop="@dimen/_40sdp"
-            android:name="com.example.appbantraicay.ui.home.fragment.FragmentBanner"
+            android:name="com.example.appbantraicay.ui.user.fragment.FragmentBanner"
             app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
 
         <com.example.appbantraicay.common.HeaderMenu

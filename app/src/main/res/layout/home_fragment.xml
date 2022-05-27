@@ -13,7 +13,7 @@
 
             <fragment
                 android:id="@+id/fragmentHeader"
-                android:name="com.example.appbantraicay.ui.home.fragment.FragmentHeader"
+                android:name="com.example.appbantraicay.ui.user.fragment.FragmentHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +36,6 @@
 
         <variable
             name="viewModel"
-            type="com.example.appbantraicay.ui.home.viewmodel.HomeViewModel" />
+            type="com.example.appbantraicay.ui.user.viewmodel.HomeViewModel" />
     </data>
 </layout>

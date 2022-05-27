@@ -2,20 +2,30 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_app_ban_trai_cay"
-    app:startDestination="@id/adminFragment">
+    app:startDestination="@id/login">
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.example.appbantraicay.ui.home.fragment.FragmentHome"
+        android:name="com.example.appbantraicay.ui.user.fragment.FragmentHome"
         android:label="FragmentHome">
         <action
             android:id="@+id/action_fragmentHome_to_fragmentDetail"
             app:destination="@id/fragmentDetail" />
+        <action
+            android:id="@+id/action_fragmentHome_to_login"
+            app:destination="@id/login" />
     </fragment>
     <fragment
         android:id="@+id/fragmentDetail"
-        android:name="com.example.appbantraicay.ui.detail.FragmentDetail"
-        android:label="FragmentDetail" />
+        android:name="com.example.appbantraicay.ui.user.fragment.FragmentDetail"
+        android:label="FragmentDetail" >
+        <action
+            android:id="@+id/action_fragmentDetail_to_fragmentCart"
+            app:destination="@id/fragmentCart" />
+        <action
+            android:id="@+id/action_fragmentDetail_to_login"
+            app:destination="@id/login" />
+    </fragment>
 
     <fragment
         android:id="@+id/adminFragment"
@@ -54,4 +64,20 @@
         android:id="@+id/accountFragment"
         android:name="com.example.appbantraicay.ui.admin.AccountFragment"
         android:label="AccountFragment" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.appbantraicay.ui.auth.fragment.FragmentLogin"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_fragmentNewPassword"
+            app:destination="@id/fragmentNewPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCart"
+        android:name="com.example.appbantraicay.ui.user.fragment.FragmentCart"
+        android:label="FragmentCart" />
+    <fragment
+        android:id="@+id/fragmentNewPassword"
+        android:name="com.example.appbantraicay.ui.auth.fragment.FragmentNewPassword"
+        android:label="FragmentNewPassword" />
 </navigation>

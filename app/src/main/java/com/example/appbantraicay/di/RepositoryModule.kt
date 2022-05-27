@@ -1,6 +1,6 @@
 package com.example.appbantraicay.di;
 
-import com.example.appbantraicay.data.repository.ApiServices
+import com.example.appbantraicay.data.services.ApiServices
 import com.example.appbantraicay.data.repository.IActionRepository
 import com.example.appbantraicay.data.repository.Repository
 import dagger.Module

@@ -12,7 +12,7 @@ import javax.inject.Singleton
     Created by SangTB on 5/18/2022
 */
 @AndroidEntryPoint
-class LoadingDialog : DialogLibrary<DialogLoadingBinding,Any>() {
+class LoadingDialog : DialogLibrary<DialogLoadingBinding>() {
     override val layout: Int
         get() = R.layout.dialog_loading
 

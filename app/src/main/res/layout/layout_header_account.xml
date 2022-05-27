@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="title"
+            type="String" />
+    </data>
+    <merge>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/bgHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:background="@color/h4CAF50" />
+
+        <View
+            android:id="@+id/viewBottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_below="@+id/bgHeader"
+            android:background="@drawable/wave" />
+
+        <TextView
+            android:id="@+id/txtLogin1"
+            style="@style/TextTitle"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:text="@string/lbl_wellcome" />
+
+        <TextView
+            android:id="@+id/txtLogin"
+            style="@style/TextTitle"
+            android:layout_below="@+id/txtLogin1"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="@{title}"
+            android:textSize="@dimen/_30ssp" />
+
+        <ImageView
+            android:id="@+id/imgPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_toEndOf="@+id/txtLogin1"
+            android:src="@drawable/ic_person" />
+    </merge>
+</layout>

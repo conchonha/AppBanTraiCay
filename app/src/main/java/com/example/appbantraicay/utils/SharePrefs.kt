@@ -7,9 +7,7 @@ class SharePrefs @Inject constructor(
     private val sharedPref: SharedPreferences,
     private val editor: SharedPreferences.Editor
 ){
-    private fun <T> put(key: String, data: T) {
-        val editor = sharedPref.edit()
-
+     fun <T> put(key: String, data: T) {
         when (data) {
             is String -> editor.putString(key, data)
             is Boolean -> editor.putBoolean(key, data)
@@ -21,7 +19,7 @@ class SharePrefs @Inject constructor(
         editor.apply()
     }
 
-    private fun <T> get(key: String, clazz: Class<T>): T =
+     fun <T> get(key: String, clazz: Class<T>): T =
         when (clazz) {
             String::class.java -> sharedPref.getString(key, EMPTY)
             Boolean::class.java -> sharedPref.getBoolean(key, false)
@@ -32,8 +30,9 @@ class SharePrefs @Inject constructor(
             else -> null
         } as T
 
-    private companion object{
-        private const val EMPTY = ""
+    companion object{
+        const val EMPTY = ""
         private const val FLOAT_DEFAULT = -1f
+        const val KEY_USER = "KEY_USER"
     }
 }

@@ -1,7 +1,9 @@
 package com.example.appbantraicay.di
 
-import com.example.appbantraicay.data.repository.ApiServices
+import com.example.appbantraicay.data.services.ApiServices
 import com.example.appbantraicay.utils.Const
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,13 +14,20 @@ import okhttp3.Protocol
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
+
+    @Singleton
+    @Provides
+    fun provideGson() : Gson = GsonBuilder()
+        .setLenient()
+        .create()
+
     @Singleton
     @Provides
     fun providesHttpLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
@@ -39,11 +48,11 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(httpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(httpClient: OkHttpClient,gson : Gson): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Const.BASE_URL)
             .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }

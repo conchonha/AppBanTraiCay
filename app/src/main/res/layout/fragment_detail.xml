@@ -13,7 +13,7 @@
 
             <fragment
                 android:id="@+id/fragmentHeader"
-                android:name="com.example.appbantraicay.ui.home.fragment.FragmentHeader"
+                android:name="com.example.appbantraicay.ui.user.fragment.FragmentHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -26,14 +26,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.productNew.tenSanPham}"
+                    android:text="@{viewModel.productNew.nameProduct}"
                     android:textSize="@dimen/_16ssp"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text='@{String.valueOf(viewModel.productNew.gia)+"VND"}'
+                    android:text='@{String.valueOf(viewModel.productNew.price)+"VND"}'
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -103,6 +103,6 @@
 
         <variable
             name="viewModel"
-            type="com.example.appbantraicay.ui.home.viewmodel.HomeViewModel" />
+            type="com.example.appbantraicay.ui.user.viewmodel.HomeViewModel" />
     </data>
 </layout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="270"
+        android:centerColor="@color/h4CAF50"
+        android:centerX="@android:integer/config_longAnimTime"
+        android:endColor="@color/h904CAF50"
+        android:startColor="@color/h85A886"
+        android:type="linear">
+
+    </gradient>
+    <corners android:radius="@dimen/_20sdp"/>
+
+</shape>

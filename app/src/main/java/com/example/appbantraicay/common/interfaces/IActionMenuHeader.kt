@@ -1,6 +1,6 @@
 package com.example.appbantraicay.common.interfaces;
 
-import com.example.appbantraicay.ui.home.adapter.IActionItemAdapter
+import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapter
 
 /*
     Copyright © 2022 UITS CO.,LTD
