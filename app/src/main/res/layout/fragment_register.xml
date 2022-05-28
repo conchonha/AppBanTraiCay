@@ -4,7 +4,7 @@
     <data>
         <variable
             name="action"
-            type="com.example.appbantraicay.ui.auth.viewmodel.LoginViewModel" />
+            type="com.example.appbantraicay.ui.auth.viewmodel.RegisterViewModel" />
     </data>
 
     <RelativeLayout
@@ -15,7 +15,7 @@
         <include
             android:id="@+id/headerLogin"
             layout="@layout/layout_header_account"
-            app:title='@{@string/lbl_login}' />
+            app:title='@{@string/lbl_register}' />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -28,17 +28,27 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/edt_name"
+                    style="@style/Edittext"
+                    android:text="@={action.userName}"
+                    android:autofillHints="@string/hint_email"
+                    android:drawableStart="@drawable/ic_user_name"
+                    android:hint="@string/hint_user_name"
+                    android:inputType="text"
+                    />
+
+                <EditText
                     android:id="@+id/edt_email"
                     style="@style/Edittext"
+                    android:autofillHints="@string/hint_password"
                     android:text="@={action.email}"
-                    android:autofillHints="@string/hint_email"
                     android:drawableStart="@drawable/ic_email"
                     android:hint="@string/hint_email"
                     android:inputType="textEmailAddress"
-                     />
+                    />
 
                 <EditText
-                    android:id="@+id/edtPassword"
+                    android:id="@+id/edt_password"
                     style="@style/Edittext"
                     android:autofillHints="@string/hint_password"
                     android:text="@={action.password}"
@@ -48,28 +58,17 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnLogin"
+                    android:id="@+id/btn_register"
                     style="@style/Button"
-                    android:text="@string/btn_login" />
+                    android:text="@string/lbl_register" />
 
                 <TextView
                     android:id="@+id/txtForgetPass"
                     style="@style/TextContent"
+                    android:onClick="@{()->action.backScreen()}"
                     android:layout_marginTop="@dimen/_25sdp"
-                    android:text="@string/lbl_forgot_password"
+                    android:text="@string/lbl_you_already_an_account"
                     android:textColor="@color/h904CAF50" />
-
-                <TextView
-                    android:id="@+id/txtRegister"
-                    style="@style/TextContent"
-                    android:clickable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:text="@string/lbl_register"
-                    android:onClick="@{()->action.navigateRegister()}"
-                    android:textColor="@color/h904CAF50"
-                    android:textStyle="bold"
-                    android:focusable="true" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>

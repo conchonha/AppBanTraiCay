@@ -20,7 +20,13 @@ class BannerAdapter @Inject constructor() :
     override fun onBindViewHolder(holder: BaseViewHolder<ItemBannerHomeBinding>, position: Int) {
         holder.binding.url = items[position].second
         holder.binding.root.setOnClickListener {
-            listener?.invoke(holder.itemView, items[position], position)
+            if(items[position].first != DEFAULT_VALUE){
+                listener?.invoke(holder.itemView, items[position], position)
+            }
         }
+    }
+
+    companion object{
+        private const val DEFAULT_VALUE = -1
     }
 }

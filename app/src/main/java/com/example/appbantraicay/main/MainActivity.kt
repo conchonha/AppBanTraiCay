@@ -8,8 +8,8 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.appbantraicay.R
 import com.example.appbantraicay.data.repository.Repository
 import com.example.appbantraicay.ui.dialog.LoadingDialog
-import com.example.appbantraicay.utils.setHideStatusBarAndControlBar
 import com.sangtb.androidlibrary.utils.ToastManager
+import com.sangtb.androidlibrary.utils.setHideStatusBarAndControlBar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Singleton

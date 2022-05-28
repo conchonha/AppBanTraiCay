@@ -1,8 +1,10 @@
 package com.example.appbantraicay.data.repository.auth;
 
+import android.util.Log
 import com.example.appbantraicay.R
 import com.example.appbantraicay.data.model.body.LoginBody
 import com.example.appbantraicay.data.model.body.NewPassBody
+import com.example.appbantraicay.data.model.body.RegisterBody
 import com.example.appbantraicay.data.model.responses.User
 import com.example.appbantraicay.data.services.ApiServices
 import com.example.appbantraicay.data.services.JavaMailAPI
@@ -25,13 +27,6 @@ class AuthRepository @Inject constructor(private val apiServices: ApiServices) :
         }
     }
 
-//    fun sendCodeEmail(email : String,content : String,code : String,onSuccess: ()->Unit){
-//        callApi {
-//            JavaMailAPI.sendMail(email,content,code)
-//            onSuccess.invoke()
-//        }
-//    }
-
     fun checkEmail(email: String,content: String,code: String,onSuccess: (Int?)->Unit){
         callApi {
             val value = apiServices.checkEmail(email)
@@ -47,6 +42,12 @@ class AuthRepository @Inject constructor(private val apiServices: ApiServices) :
     fun updatePasswordForEmail(newPassBody: NewPassBody,onSuccess: (String) -> Unit){
         callApi {
             onSuccess.invoke( apiServices.updatePasswordForEmail(newPassBody))
+        }
+    }
+
+    fun register(registerBody: RegisterBody,onSuccess: (String) -> Unit){
+        callApi {
+            onSuccess.invoke(apiServices.register(registerBody))
         }
     }
 }

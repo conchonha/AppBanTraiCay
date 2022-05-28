@@ -4,13 +4,13 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.example.appbantraicay.ui.user.viewmodel.HomeViewModel" />
+            name="action"
+            type="com.example.appbantraicay.ui.user.viewmodel.HeaderViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <LinearLayout
             android:id="@+id/line_group1"
             app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +20,7 @@
             android:paddingHorizontal="@dimen/_10sdp"
             android:orientation="vertical"
             android:paddingBottom="@dimen/_10ssp"
-            android:paddingTop="@{Float.valueOf(viewModel.heightStatusBar)+  @dimen/_10sdp}">
+            android:paddingTop="@{Float.valueOf(action.heightStatusBar)+  @dimen/_10sdp}">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -31,18 +31,19 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="@dimen/_5sdp"
                     android:drawableStart="@drawable/ic_user"
-                    android:text="Tran Thi Thanh"
+                    android:text="@{action.userInfo.first}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/txtLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:drawablePadding="@dimen/_5sdp"
                     android:drawableStart="@drawable/ic_password"
-                    android:text="Dang Xuat"
+                    android:text="@{action.userInfo.second}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
@@ -81,7 +82,15 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:setMenuListener="@{viewModel}"
+            app:setMenuListener="@{action}"
+            app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_seach"
+            android:background="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

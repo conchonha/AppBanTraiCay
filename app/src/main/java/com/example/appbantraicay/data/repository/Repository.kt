@@ -22,12 +22,10 @@ import javax.inject.Singleton
 class Repository @Inject constructor(private val apiServices: ApiServices) :
     DefaultLifecycleObserver, IActionRepository, BaseRepository() {
     private val _listAdvertisement = MutableLiveData<List<Advertisement>>()
-    override val listAdvertisement: LiveData<List<Advertisement>>
-        get() = _listAdvertisement
+    override val listAdvertisement: LiveData<List<Advertisement>> = _listAdvertisement
 
     private val _listProductCategory = MutableLiveData<List<Pair<Category?, List<ProductNew>?>>>()
-    override val listProductCategory: LiveData<List<Pair<Category?, List<ProductNew>?>>>
-        get() = _listProductCategory
+    override val listProductCategory: LiveData<List<Pair<Category?, List<ProductNew>?>>> = _listProductCategory
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -55,6 +53,12 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
     override fun insertCart(idUser: Int, idProduct: Int, price: Int) {
         callApi {
 //            apiServices.insertCart(idUser, idProduct, price)
+        }
+    }
+
+    override fun getDataProductFromIdBanner(id: String?, onSuccess: (ProductNew) -> Unit) {
+        callApi {
+            onSuccess.invoke(apiServices.getDataProductFromIdBanner(id))
         }
     }
 

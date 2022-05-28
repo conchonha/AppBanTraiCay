@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_app_ban_trai_cay"
-    app:startDestination="@id/login">
+    app:startDestination="@id/fragmentHome">
 
     <fragment
         android:id="@+id/fragmentHome"
@@ -71,6 +71,11 @@
         <action
             android:id="@+id/action_login_to_fragmentNewPassword"
             app:destination="@id/fragmentNewPassword" />
+        <action
+            android:id="@+id/action_login_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+        <deepLink
+            app:uri="@string/deeplink_action_login" />
     </fragment>
     <fragment
         android:id="@+id/fragmentCart"
@@ -80,4 +85,8 @@
         android:id="@+id/fragmentNewPassword"
         android:name="com.example.appbantraicay.ui.auth.fragment.FragmentNewPassword"
         android:label="FragmentNewPassword" />
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="com.example.appbantraicay.ui.auth.fragment.FragmentRegister"
+        android:label="FragmentRegister" />
 </navigation>

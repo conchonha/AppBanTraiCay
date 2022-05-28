@@ -10,8 +10,12 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import com.example.appbantraicay.R
 import com.example.appbantraicay.di.MainCoroutineScope
 import com.google.gson.Gson
@@ -31,37 +35,24 @@ fun setUrlImage(imageView: ImageView, src: String) {
     Picasso.get().load(src).error(R.drawable.img_error).into(imageView)
 }
 
-fun AppCompatActivity.setHideStatusBarAndControlBar() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
-    }
-}
-
-fun Context.getNavigationBarHeight(): Int {
-    val resources: Resources = this.resources
-    val resourceId: Int = resources.getIdentifier("navigation_bar_height", "dimen", "android")
-    return if (resourceId > 0) {
-        resources.getDimensionPixelSize(resourceId)
-    } else 0
-}
-
-fun Context.getStatusBarHeight(): Int {
-    val resources: Resources = this.resources
-    val resourceId: Int = resources.getIdentifier("status_bar_height", "dimen", "android")
-    return if (resourceId > 0) {
-        resources.getDimensionPixelSize(resourceId)
-    } else 0
-}
-
 fun SharePrefs.checkUser() = get(SharePrefs.KEY_USER, String::class.java) != SharePrefs.EMPTY
 
 fun Any.toJson(): String {
     return Gson().toJson(this)
 }
 
+fun <T>String.fromJSon(clazz: Class<T>): T? {
+   return if(this != SharePrefs.EMPTY) Gson().fromJson(this,clazz) else null
+}
+
 fun Context.showToast(id : Int){
     Toast.makeText(this,getString(id),Toast.LENGTH_LONG).show()
+}
+
+fun Fragment.navigateDeepLink(uri: Int){
+    NavDeepLinkRequest.Builder
+        .fromUri(getString(uri).toUri())
+        .build().let {
+            findNavController().navigate(it)
+        }
 }

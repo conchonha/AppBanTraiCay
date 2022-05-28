@@ -1,34 +1,26 @@
 package com.example.appbantraicay.utils
 
 import android.content.SharedPreferences
+import com.example.appbantraicay.data.model.responses.User
+import com.sangtb.androidlibrary.utils.SharePrefs
 import javax.inject.Inject
 
 class SharePrefs @Inject constructor(
-    private val sharedPref: SharedPreferences,
-    private val editor: SharedPreferences.Editor
-){
-     fun <T> put(key: String, data: T) {
-        when (data) {
-            is String -> editor.putString(key, data)
-            is Boolean -> editor.putBoolean(key, data)
-            is Float -> editor.putFloat(key, data)
-            is Double -> editor.putFloat(key, data.toFloat())
-            is Int -> editor.putInt(key, data)
-            is Long -> editor.putLong(key, data)
-        }
-        editor.apply()
+    override val editor: SharedPreferences.Editor,
+    override val sharedPref: SharedPreferences
+) : SharePrefs(){
+
+    fun getUserInfo() : User?{
+       return get(KEY_USER, String::class.java).fromJSon(User::class.java)
     }
 
-     fun <T> get(key: String, clazz: Class<T>): T =
-        when (clazz) {
-            String::class.java -> sharedPref.getString(key, EMPTY)
-            Boolean::class.java -> sharedPref.getBoolean(key, false)
-            Float::class.java -> sharedPref.getFloat(key, FLOAT_DEFAULT)
-            Double::class.java -> sharedPref.getFloat(key, FLOAT_DEFAULT)
-            Int::class.java -> sharedPref.getInt(key, -1)
-            Long::class.java -> sharedPref.getLong(key, -1L)
-            else -> null
-        } as T
+    fun saveUser(user: String){
+        put(KEY_USER,user)
+    }
+
+    fun removeUser(){
+        editor.clear().commit()
+    }
 
     companion object{
         const val EMPTY = ""

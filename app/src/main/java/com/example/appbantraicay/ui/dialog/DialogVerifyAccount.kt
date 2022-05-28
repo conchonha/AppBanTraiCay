@@ -8,9 +8,9 @@ import androidx.fragment.app.activityViewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.DialogVerifyAccountBinding
 import com.example.appbantraicay.ui.auth.viewmodel.LoginViewModel
-import com.example.appbantraicay.utils.Validator.isValid
 import com.example.appbantraicay.utils.showToast
 import com.sangtb.androidlibrary.utils.DialogLibrary
+import com.sangtb.androidlibrary.utils.Validator.isValid
 import dagger.hilt.android.AndroidEntryPoint
 
 /*

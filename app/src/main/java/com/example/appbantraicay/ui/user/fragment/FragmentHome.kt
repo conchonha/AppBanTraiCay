@@ -29,7 +29,7 @@ class FragmentHome : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapterMenu.actionItemCart = viewModel.actionItemAdapter
+        adapterMenu.actionItemCart = viewModel
         binding.viewModel = viewModel
 
         binding.recyclerBody.apply {
@@ -40,6 +40,5 @@ class FragmentHome : BaseFragment<HomeFragmentBinding, HomeViewModel>() {
         viewModel.listProductCategory.observe(viewLifecycleOwner){
             adapterMenu.updateItems(it.toMutableList())
         }
-
     }
 }

@@ -17,6 +17,7 @@
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-xhdpi/ic_baseline_person_outline_24.xml" value="0.1585" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-xhdpi/ic_bell.xml" value="0.1585" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-xhdpi/ic_close.xml" value="0.1" />
+        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/drawable-xhdpi/ic_user_name.xml" value="0.168" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/font/aclonica.xml" value="0.17916666666666667" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/font/baloo.xml" value="0.3193359375" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/activity_main.xml" value="0.1334853090172239" />
@@ -29,12 +30,14 @@
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/fragment_header.xml" value="0.1" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/fragment_login.xml" value="0.17552083333333332" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/fragment_new_password.xml" value="0.20425724637681159" />
+        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/fragment_register.xml" value="0.20425724637681159" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/home_fragment.xml" value="0.2" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/item_banner_home.xml" value="0.12239583333333333" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/item_product_home.xml" value="0.1265625" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/item_title_home.xml" value="0.1265625" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/layout_header_account.xml" value="0.17552083333333332" />
         <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/layout/layout_header_menu.xml" value="0.24561403508771928" />
+        <entry key="..\:/android/android_kotlin/AppBanTraiCay/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

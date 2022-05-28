@@ -1,6 +1,7 @@
 package com.example.appbantraicay.ui.auth.viewmodel;
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.appbantraicay.R
 import com.example.appbantraicay.data.model.body.NewPassBody
@@ -34,6 +35,7 @@ public class NewPasswordViewModel @Inject constructor(
             authRepository.updatePasswordForEmail(NewPassBody(email.value,password.value)){
                 if(it == Const.SUCCESS){
                     backScreen()
+                    showToast(R.string.update_password_success)
                     return@updatePasswordForEmail
                 }
                 showToast(R.string.update_faild)

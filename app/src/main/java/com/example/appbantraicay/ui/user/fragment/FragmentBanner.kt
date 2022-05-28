@@ -3,6 +3,7 @@ package com.example.appbantraicay.ui.user.fragment;
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -36,10 +37,13 @@ class FragmentBanner : BaseFragment<BannerFragmentBinding, HomeViewModel>() {
         binding.apply {
             viewpagerBanner.adapter = adapter
             viewModel.listAdvertisement.observe(viewLifecycleOwner) {
-                adapter.updateItems(it.toMutableList())
-                pageIndicatorViewBanner.count = adapter.itemCount
-                if(findNavController().currentDestination?.id == R.id.fragmentHome){
-                    autoSlideViewpager()
+                Log.d("SangTB", "onViewCreated listAdvertisement: ")
+                it?.let {
+                    adapter.updateItems(it.toMutableList())
+                    pageIndicatorViewBanner.count = adapter.itemCount
+                    if(findNavController().currentDestination?.id == R.id.fragmentHome){
+                        autoSlideViewpager()
+                    }
                 }
             }
 
@@ -50,6 +54,10 @@ class FragmentBanner : BaseFragment<BannerFragmentBinding, HomeViewModel>() {
                     pageIndicatorViewBanner.selection = position
                 }
             })
+
+            adapter.listener = {_,item,_->
+                viewModel.bannerHomeClick(item.first)
+            }
         }
     }
 
@@ -74,6 +82,6 @@ class FragmentBanner : BaseFragment<BannerFragmentBinding, HomeViewModel>() {
 
     companion object{
         private const val DEFAULT_VALUE = 0
-        private const val DURATION_TIME = 3000L
+        private const val DURATION_TIME = 4000L
     }
 }

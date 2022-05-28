@@ -25,4 +25,8 @@ class FragmentDetail : BaseFragment<FragmentDetailBinding, HomeViewModel>(){
         binding.viewModel = viewModel
     }
 
+    override fun onDestroy() {
+        viewModel.removeBannerDetail()
+        super.onDestroy()
+    }
 }

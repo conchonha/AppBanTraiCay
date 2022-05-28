@@ -14,4 +14,5 @@ interface IActionRepository {
     val listProductCategory : LiveData<List<Pair<Category?,List<ProductNew>?>>>
 
     fun insertCart(idUser: Int, idProduct: Int, price: Int)
+    fun getDataProductFromIdBanner(id : String?,onSuccess: (ProductNew)->Unit)
 }

@@ -8,5 +8,4 @@ import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapter
 */
 interface IActionMenuHeader {
     fun onClickItemTitle(itemTitleId : Int)
-    val actionItemAdapter : IActionItemAdapter
 }

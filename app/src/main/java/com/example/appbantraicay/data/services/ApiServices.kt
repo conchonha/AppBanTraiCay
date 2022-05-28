@@ -2,6 +2,7 @@ package com.example.appbantraicay.data.services;
 
 import com.example.appbantraicay.data.model.body.LoginBody
 import com.example.appbantraicay.data.model.body.NewPassBody
+import com.example.appbantraicay.data.model.body.RegisterBody
 import com.example.appbantraicay.data.model.responses.Advertisement
 import com.example.appbantraicay.data.model.responses.Category
 import com.example.appbantraicay.data.model.responses.ProductNew
@@ -37,4 +38,11 @@ interface ApiServices {
 
     @POST("model/taikhoan/updatePasswordForEmail")
     suspend fun updatePasswordForEmail(@Body newPassBody: NewPassBody) : String
+
+    @POST("model/taikhoan/dangkytaikhoan")
+    suspend fun register(@Body registerBody: RegisterBody) : String
+
+    @FormUrlEncoded
+    @POST("model/sanpham/getdatasanphamchitiet")
+    suspend fun getDataProductFromIdBanner(@Field("id") id: String?): ProductNew
 }

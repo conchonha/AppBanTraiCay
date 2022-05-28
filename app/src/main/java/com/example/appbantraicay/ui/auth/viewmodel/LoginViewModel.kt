@@ -25,7 +25,7 @@ class LoginViewModel @Inject constructor(
 ) :
     BaseViewModel(application) {
     private val dialog by lazy { DialogVerifyAccount() }
-    private val textCode = Random.nextInt(RANDOM_CODE_VERIFY_EMAIL).toString()
+    private var textCode = Random.nextInt(RANDOM_CODE_VERIFY_EMAIL).toString()
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -34,7 +34,7 @@ class LoginViewModel @Inject constructor(
     fun loginUser() {
         repository.login(LoginBody(email.value, password.value)) {
             if (it.isNotEmpty()) {
-                sharePrefs.put(SharePrefs.KEY_USER, it[INDEX_ZERO].toJson())
+                sharePrefs.saveUser(it[INDEX_ZERO].toJson())
                 backScreen()
                 return@login
             }
@@ -43,9 +43,18 @@ class LoginViewModel @Inject constructor(
     }
 
     fun showDialogVerifyEmail(fragmentManager: FragmentManager) {
-        repository.checkEmail(email.value!!, getString(R.string.lbl_error_verify_code), textCode) {
+        repository.checkEmail(
+            email.value!!,
+            getString(R.string.lbl_error_verify_code),
+            Random.nextInt(RANDOM_CODE_VERIFY_EMAIL).toString().also {
+                textCode = it
+            }) {
             it?.let { showToast(it) } ?: dialog.show(fragmentManager)
         }
+    }
+
+    fun navigateRegister(){
+        navigateToDestination(R.id.action_login_to_fragmentRegister)
     }
 
     //click button send from dialog screen
@@ -54,7 +63,7 @@ class LoginViewModel @Inject constructor(
             dialog.dismiss()
             navigateToDestination(
                 R.id.action_login_to_fragmentNewPassword,
-                bundleOf(KEY_EMAIL to email)
+                bundleOf(KEY_EMAIL to email.value)
             )
             return
         }

@@ -52,4 +52,10 @@
     <string name="password_are_not_the_same">Passwords are not the same</string>
     <string name="update_faild">Update faild</string>
     <string name="verify_code_incorrect">Verify code incorrect</string>
+    <string name="update_password_success">Update password success</string>
+    <string name="lbl_you_already_an_account">You already an account? login</string>
+    <string name="register_success">Register Success</string>
+    <string name="sing_out">Sign out</string>
+    <string name="sign_in">Sign In</string>
+    <string name="deeplink_action_login">http://com.example.appbantraicay.fragment_login</string>
 </resources>

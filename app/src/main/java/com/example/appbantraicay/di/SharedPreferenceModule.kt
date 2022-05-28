@@ -29,5 +29,5 @@ class SharedPreferenceModule {
     fun provideSharePrefs(
         sharedPreferences: SharedPreferences,
         editor: SharedPreferences.Editor
-    ): SharePrefs = SharePrefs(sharedPreferences,editor)
+    ): SharePrefs = SharePrefs(editor,sharedPreferences)
 }

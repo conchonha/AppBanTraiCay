@@ -6,11 +6,11 @@ import androidx.fragment.app.activityViewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.FragmentLoginBinding
 import com.example.appbantraicay.ui.auth.viewmodel.LoginViewModel
-import com.example.appbantraicay.utils.Validator.isEmailValid
-import com.example.appbantraicay.utils.Validator.isPasswordValid
-import com.example.appbantraicay.utils.Validator.isValid
-import com.example.appbantraicay.utils.Validator.validate
 import com.sangtb.androidlibrary.base.BaseFragment
+import com.sangtb.androidlibrary.utils.Validator.isEmailValid
+import com.sangtb.androidlibrary.utils.Validator.isPasswordValid
+import com.sangtb.androidlibrary.utils.Validator.isValid
+import com.sangtb.androidlibrary.utils.Validator.validate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
