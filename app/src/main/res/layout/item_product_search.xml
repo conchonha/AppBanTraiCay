@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.appbantraicay.data.model.responses.ProductNew" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:padding="@dimen/_2sdp"
+        app:cardCornerRadius="@dimen/_2sdp"
+        app:cardElevation="@dimen/_7sdp">
+
+        <LinearLayout
+            android:id="@+id/llFavoritePlace"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                app:cardCornerRadius="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <ImageView
+                    android:id="@+id/imgFavoritePlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#000"
+                    setImageUrl = "@{product.image}"
+                    android:scaleType="fitXY" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_2sdp">
+
+                <TextView
+                    android:id="@+id/tvNamePlace"
+                    style="@style/TextTitle"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{product.nameProduct}"
+                    android:textColor="#000"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvIntroducePlace"
+                    android:text="@{product.price.toString()}"
+                    style="@style/TextContent"
+                    android:textColor="@color/purple_500"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                   />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

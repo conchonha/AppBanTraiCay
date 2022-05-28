@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="action"
             type="com.example.appbantraicay.ui.user.viewmodel.HeaderViewModel" />
@@ -54,6 +55,8 @@
                 android:layout_height="@dimen/dp50"
                 android:paddingHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10ssp"
+                android:text="@={action.edittextSearch}"
+                android:id="@+id/edtSearch"
                 android:background="@color/white"
                 android:drawableEnd="@drawable/ic_search"
                 android:hint="@string/search"
@@ -78,19 +81,25 @@
             android:name="com.example.appbantraicay.ui.user.fragment.FragmentBanner"
             app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_search"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:orientation="vertical"
+            android:visibility="@{action.edittextSearch.length() == 0 ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:background="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
+
         <com.example.appbantraicay.common.HeaderMenu
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:setMenuListener="@{action}"
             app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="@dimen/dp0"
-            android:layout_height="wrap_content"
-            android:id="@+id/recycler_seach"
-            android:background="@color/white"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

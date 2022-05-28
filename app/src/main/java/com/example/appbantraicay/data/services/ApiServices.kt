@@ -45,4 +45,8 @@ interface ApiServices {
     @FormUrlEncoded
     @POST("model/sanpham/getdatasanphamchitiet")
     suspend fun getDataProductFromIdBanner(@Field("id") id: String?): ProductNew
+
+    @FormUrlEncoded
+    @POST("model/sanpham/getdataTimkiem")
+    suspend fun searchProduct(@Field("timkim") search: String?): List<ProductNew>
 }

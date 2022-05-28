@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.appbantraicay.R
 import com.example.appbantraicay.data.repository.Repository
+import com.example.appbantraicay.data.repository.auth.AuthRepository
 import com.example.appbantraicay.ui.dialog.LoadingDialog
 import com.sangtb.androidlibrary.utils.ToastManager
 import com.sangtb.androidlibrary.utils.setHideStatusBarAndControlBar
@@ -25,10 +26,15 @@ class MainActivity : AppCompatActivity() {
     @Singleton
     lateinit var repository: Repository
 
+    @Inject
+    @Singleton
+    lateinit var authRepository: AuthRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lifecycle.addObserver(repository)
+        lifecycle.addObserver(authRepository)
 
         //set hide control bar and status bar
         setHideStatusBarAndControlBar()

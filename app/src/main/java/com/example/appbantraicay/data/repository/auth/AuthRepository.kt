@@ -1,10 +1,15 @@
 package com.example.appbantraicay.data.repository.auth;
 
 import android.util.Log
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.appbantraicay.R
 import com.example.appbantraicay.data.model.body.LoginBody
 import com.example.appbantraicay.data.model.body.NewPassBody
 import com.example.appbantraicay.data.model.body.RegisterBody
+import com.example.appbantraicay.data.model.responses.ProductNew
 import com.example.appbantraicay.data.model.responses.User
 import com.example.appbantraicay.data.services.ApiServices
 import com.example.appbantraicay.data.services.JavaMailAPI
@@ -19,7 +24,9 @@ import javax.inject.Singleton
 */
 
 @Singleton
-class AuthRepository @Inject constructor(private val apiServices: ApiServices) : BaseRepository(){
+class AuthRepository @Inject constructor(private val apiServices: ApiServices) : BaseRepository(),DefaultLifecycleObserver{
+    private val _listProductSearch = MutableLiveData<List<ProductNew>>()
+    val listProductSearch : LiveData<List<ProductNew>> = _listProductSearch
 
     fun login(loginBody: LoginBody,onSuccess: (List<User>)->Unit){
         callApi {
@@ -49,5 +56,19 @@ class AuthRepository @Inject constructor(private val apiServices: ApiServices) :
         callApi {
             onSuccess.invoke(apiServices.register(registerBody))
         }
+    }
+
+    suspend fun search(str : String){
+        try {
+            _listProductSearch.postValue(apiServices.searchProduct(str))
+        }catch (e : Exception){
+            e.printStackTrace()
+            Log.d(TAG, "search: ${e.message}")
+        }
+    }
+
+    override fun onDestroy(owner: LifecycleOwner) {
+        cancelCoroutine()
+        super.onDestroy(owner)
     }
 }

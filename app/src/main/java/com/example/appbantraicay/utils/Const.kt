@@ -7,4 +7,6 @@ package com.example.appbantraicay.utils
      const val BASE_URL = "http://192.168.1.26/cuahang/public/"
      const val SUCCESS = "Success"
      const val KEY_EMAIL = "KEY_EMAIL"
+     const val TYPE_HOME = 0
+     const val TYPE_DETAIL = 1
 }

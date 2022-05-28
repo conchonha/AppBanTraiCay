@@ -10,6 +10,8 @@ import com.example.appbantraicay.data.model.responses.ProductNew
 import com.example.appbantraicay.data.model.responses.User
 import com.example.appbantraicay.data.repository.Repository
 import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapter
+import com.example.appbantraicay.utils.Const.TYPE_DETAIL
+import com.example.appbantraicay.utils.Const.TYPE_HOME
 import com.example.appbantraicay.utils.SharePrefs
 import com.example.appbantraicay.utils.checkUser
 import com.sangtb.androidlibrary.base.BaseViewModel
@@ -54,9 +56,10 @@ class HomeViewModel @Inject constructor(
         navigateToDestination(R.id.action_fragmentHome_to_fragmentDetail)
     }
 
-    fun bannerHomeClick(first: Int?) {
+    fun bannerHomeClick(first: Int?, type : Int? = TYPE_HOME) {
         repository.getDataProductFromIdBanner(first.toString()) {
             _productNew.postValue(it)
+            if(type == TYPE_DETAIL) return@getDataProductFromIdBanner
             navigateToDestination(R.id.action_fragmentHome_to_fragmentDetail)
         }
     }
