@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.appbantraicay.data.model.responses.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_item_account"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            setImageUrl="@{user.image}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:weightSum="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/userName"
+                    style="@style/TextTitleItemAccount"
+                    android:text="@string/text_title_username" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/password"
+                    style="@style/TextTitleItemAccount"
+                    android:text="@string/text_title_password" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/email"
+                    style="@style/TextTitleItemAccount"
+                    android:text="@string/text_title_email" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/address"
+                    style="@style/TextTitleItemAccount"
+                    android:text="@string/text_title_address" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/phone"
+                    style="@style/TextTitleItemAccount"
+                    android:text="@string/text_title_phone" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_userName"
+                    style="@style/TextTitleValueItemAccount"
+                    android:text="@{user.userName}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_password"
+                    style="@style/TextTitleValueItemAccount"
+                    android:text="*********" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_email"
+                    style="@style/TextTitleValueItemAccount"
+                    android:text="@{user.email}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_address"
+                    style="@style/TextTitleValueItemAccount"
+                    android:text="@{user.address}" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_phone"
+                    style="@style/TextTitleValueItemAccount"
+                    android:text="@{user.phoneNumBer}" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

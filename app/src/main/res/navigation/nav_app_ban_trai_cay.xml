@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_app_ban_trai_cay"
-    app:startDestination="@id/fragmentHome">
+    app:startDestination="@id/adminFragment">
 
     <fragment
         android:id="@+id/fragmentHome"
@@ -58,7 +58,7 @@
         android:label="ProductFragment" />
     <fragment
         android:id="@+id/reportFragment"
-        android:name="com.example.appbantraicay.ui.admin.ReportFragment"
+        android:name="com.example.appbantraicay.ui.admin.NewsFragment"
         android:label="ReportFragment" />
     <fragment
         android:id="@+id/accountFragment"

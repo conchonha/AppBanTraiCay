@@ -4,9 +4,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.appbantraicay.data.model.responses.Advertisement
-import com.example.appbantraicay.data.model.responses.Category
-import com.example.appbantraicay.data.model.responses.ProductNew
+import com.example.appbantraicay.data.model.responses.*
 import com.example.appbantraicay.data.services.ApiServices
 import com.sangtb.androidlibrary.base.data.repository.BaseRepository
 import javax.inject.Inject
@@ -27,6 +25,34 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
     private val _listProductCategory = MutableLiveData<List<Pair<Category?, List<ProductNew>?>>>()
     override val listProductCategory: LiveData<List<Pair<Category?, List<ProductNew>?>>> = _listProductCategory
 
+    private val _listDataUser = MutableLiveData<List<User>>()
+    override val listDataUser: LiveData<List<User>>
+        get() = _listDataUser
+
+    private val _listDataProduct = MutableLiveData<List<DataProduct>>()
+    override val listDataProduct: LiveData<List<DataProduct>>
+        get() = _listDataProduct
+
+    private val _listDataOrderTransportting =  MutableLiveData<List<Order>>()
+    override val listDataOrderTransportting: LiveData<List<Order>>
+        get() = _listDataOrderTransportting
+
+    private val _listDataOrderDeleted = MutableLiveData<List<Order>>()
+    override val listDataOrderDeleted: LiveData<List<Order>>
+        get() =_listDataOrderDeleted
+
+    private val _listDataOrderSuccess = MutableLiveData<List<Order>>()
+    override val listDataOrderSuccess: LiveData<List<Order>>
+        get() = _listDataOrderSuccess
+
+    private val _listDataOrderApproving = MutableLiveData<List<Order>>()
+    override val listDataOrderApproving: LiveData<List<Order>>
+        get() = _listDataOrderApproving
+
+    private val _listDataNews = MutableLiveData<List<New>>()
+    override val listDataNews: LiveData<List<New>>
+        get() = _listDataNews
+
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         callApi {
@@ -46,6 +72,44 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
                     )
                 )
                 _listProductCategory.postValue(pairList.toMutableList())
+            }
+
+            // get list data  user
+
+            mutableListOf<User>().let {
+                it.addAll(apiServices.getListDataUser())
+                _listDataUser.postValue(it)
+            }
+
+            //get list data product
+            mutableListOf<DataProduct>().let {
+                it.addAll(apiServices.getDataProduct())
+                _listDataProduct.postValue(it)
+            }
+
+            mutableListOf<Order>().let {
+                it.addAll(apiServices.getDataOrderTransportting())
+                _listDataOrderTransportting.postValue(it)
+            }
+
+            mutableListOf<Order>().let {
+                it.addAll(apiServices.getDataOrderApproving())
+                _listDataOrderApproving.postValue(it)
+            }
+
+            mutableListOf<Order>().let {
+                it.addAll(apiServices.getDataOrderDeleted())
+                _listDataOrderDeleted.postValue(it)
+            }
+
+            mutableListOf<Order>().let {
+                it.addAll(apiServices.getDataOrderSuccess())
+                _listDataOrderSuccess.postValue(it)
+            }
+
+            mutableListOf<New>().let {
+                it.addAll(apiServices.getDataNews())
+                _listDataNews.postValue(it)
             }
         }
     }

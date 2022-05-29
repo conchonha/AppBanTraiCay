@@ -7,12 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AccountViewModel @Inject constructor(
-    application: Application,
-    private val repository: Repository,
-) : BaseViewModel(application) {
+class NewsViewModel @Inject constructor(application: Application, private val repository : Repository) : BaseViewModel(application) {
 
-    val listDataUser = repository.listDataUser
-
-
+    val listDataNews = repository.listDataNews
 }

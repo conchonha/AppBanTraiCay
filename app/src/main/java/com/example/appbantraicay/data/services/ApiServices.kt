@@ -3,10 +3,7 @@ package com.example.appbantraicay.data.services;
 import com.example.appbantraicay.data.model.body.LoginBody
 import com.example.appbantraicay.data.model.body.NewPassBody
 import com.example.appbantraicay.data.model.body.RegisterBody
-import com.example.appbantraicay.data.model.responses.Advertisement
-import com.example.appbantraicay.data.model.responses.Category
-import com.example.appbantraicay.data.model.responses.ProductNew
-import com.example.appbantraicay.data.model.responses.User
+import com.example.appbantraicay.data.model.responses.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -17,7 +14,7 @@ import retrofit2.http.*
 
 interface ApiServices {
     @GET("model/quangcao/getdata")
-    suspend fun getDataAdvertisement() : List<Advertisement>
+    suspend fun getDataAdvertisement(): List<Advertisement>
 
     @GET("model/danhmuc/getdata")
     suspend fun getDataCategory(): List<Category>
@@ -34,10 +31,34 @@ interface ApiServices {
 
     @FormUrlEncoded
     @POST("model/taikhoan/checkEmail")
-    suspend fun checkEmail(@Field("email") email : String) : String
+    suspend fun checkEmail(@Field("email") email: String): String
 
     @POST("model/taikhoan/updatePasswordForEmail")
-    suspend fun updatePasswordForEmail(@Body newPassBody: NewPassBody) : String
+    suspend fun updatePasswordForEmail(@Body newPassBody: NewPassBody): String
+
+    //API Data User Admin
+    @GET("model/taikhoan/gettaikhoan")
+    suspend fun getListDataUser(): List<User>
+
+    //API Product Admin
+    @FormUrlEncoded
+    @POST("model/laptopmacbook/getdatalaptopmacbook")
+    fun getDataProduct(@Field("id") id: String = "1"): List<DataProduct>
+
+
+    //API
+
+    @GET("model/dondathang/getdatadangvanchuyenadmin")
+    fun getDataOrderTransportting(): List<Order>
+
+    @GET("model/dondathang/getdatadahuyadmin")
+    fun getDataOrderDeleted(): List<Order>
+
+    @GET("model/dondathang/dagiaohangadmin")
+    fun getDataOrderSuccess(): List<Order>
+
+    @GET("model/dondathang/choxetduyetadmin")
+    fun getDataOrderApproving(): List<Order>
 
     @POST("model/taikhoan/dangkytaikhoan")
     suspend fun register(@Body registerBody: RegisterBody) : String
@@ -49,4 +70,7 @@ interface ApiServices {
     @FormUrlEncoded
     @POST("model/sanpham/getdataTimkiem")
     suspend fun searchProduct(@Field("timkim") search: String?): List<ProductNew>
+
+    @GET("model/tintuc/getdatatintuc")
+    fun getDataNews(): List<New>
 }

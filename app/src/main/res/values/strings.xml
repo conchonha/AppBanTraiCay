@@ -13,7 +13,7 @@
     <string name="see_cart">See cart</string>
     <string name="detail_image">Detail image</string>
     <string name="related_products">Related products</string>
-    <string name="reports">Report</string>
+    <string name="reports">News</string>
     <string name="request_pending">Request Pending</string>
     <string name="request_complete">Request Complex</string>
     <string name="assets_avaiable">Assets Avaiable</string>
@@ -52,10 +52,23 @@
     <string name="password_are_not_the_same">Passwords are not the same</string>
     <string name="update_faild">Update faild</string>
     <string name="verify_code_incorrect">Verify code incorrect</string>
+    <string name="text_title_username">UserName:</string>
+    <string name="text_title_password">Password:</string>
+    <string name="text_title_email">Email:</string>
+    <string name="text_title_address">Address:</string>
+    <string name="text_title_phone">Phone:</string>
+    <string name="query_hint_text_account">Please input account</string>
+    <string name="order_transporting">Order Transporting</string>
+    <string name="order_deleted">Order Deleted</string>
+    <string name="order_success">Order Success</string>
     <string name="update_password_success">Update password success</string>
     <string name="lbl_you_already_an_account">You already an account? login</string>
     <string name="register_success">Register Success</string>
     <string name="sing_out">Sign out</string>
     <string name="sign_in">Sign In</string>
     <string name="deeplink_action_login">http://com.example.appbantraicay.fragment_login</string>
+    <string name="text_title_id">Id:</string>
+    <string name="title_text_date_order">Date Order:</string>
+    <string name="title_text_status_order">Status Order:</string>
+    <string name="order_approving">Order Approving</string>
 </resources>

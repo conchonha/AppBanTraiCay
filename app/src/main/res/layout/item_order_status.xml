@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="order"
+            type="com.example.appbantraicay.data.model.responses.Order" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_item_account"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/idOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_title_id"
+            android:textAlignment="textStart"
+            android:textColor="@color/color_145252"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{order.idDonHang}"
+            android:textAlignment="center"
+            android:textColor="@color/color_77e6b6"
+            app:layout_constraintBottom_toBottomOf="@id/idOrder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/idOrder"
+            app:layout_constraintTop_toTopOf="@+id/idOrder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dateOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_text_date_order"
+            android:textAlignment="textStart"
+            android:textColor="@color/color_145252"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintStart_toStartOf="@id/idOrder"
+            app:layout_constraintTop_toBottomOf="@id/idOrder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDateOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{order.ngayDat}"
+            android:textAlignment="center"
+            android:textColor="@color/color_77e6b6"
+            app:layout_constraintBottom_toBottomOf="@id/dateOrder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dateOrder"
+            app:layout_constraintTop_toTopOf="@+id/dateOrder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/statusOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_text_status_order"
+            android:textAlignment="textStart"
+            android:textColor="@color/color_145252"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintStart_toStartOf="@id/dateOrder"
+            app:layout_constraintTop_toBottomOf="@id/dateOrder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtStatusOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{order.trinhTrang}"
+            android:textAlignment="center"
+            android:textColor="@color/color_77e6b6"
+            app:layout_constraintBottom_toBottomOf="@id/statusOrder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/statusOrder"
+            app:layout_constraintTop_toTopOf="@+id/statusOrder" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

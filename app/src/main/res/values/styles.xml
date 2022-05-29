@@ -140,4 +140,24 @@
         <item name="android:textSize">@dimen/_14ssp</item>
         <item name="android:textColor">@color/h5E5E5E</item>
     </style>
+
+    <style name="TextTitleItemAccount">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/baloo</item>
+        <item name="android:textColor">@color/color_0B368E</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
+    </style>
+
+    <style name="TextTitleValueItemAccount">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/baloo</item>
+        <item name="android:textColor">@color/color_004343</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:paddingTop">@dimen/_3sdp</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="singleLine">true</item>
+    </style>
 </resources>
