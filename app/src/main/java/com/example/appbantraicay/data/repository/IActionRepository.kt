@@ -31,6 +31,5 @@ interface IActionRepository {
 
     val listDataNews : LiveData<List<New>>
 
-    fun insertCart(idUser: Int, idProduct: Int, price: Int)
     fun getDataProductFromIdBanner(id : String?,onSuccess: (ProductNew)->Unit)
 }
