@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.appbantraicay.R
 import com.example.appbantraicay.common.interfaces.IActionMenuHeader
 import com.example.appbantraicay.data.model.responses.User
+import com.example.appbantraicay.data.repository.Repository
 import com.example.appbantraicay.data.repository.auth.AuthRepository
 import com.example.appbantraicay.utils.SharePrefs
 import com.sangtb.androidlibrary.base.BaseViewModel
@@ -27,11 +28,13 @@ import javax.inject.Inject
 public class HeaderViewModel @Inject constructor(
     application: Application,
     private val sharePrefs: SharePrefs,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val repository: Repository
 ) : BaseViewModel(application), IActionMenuHeader{
     val heightStatusBar: LiveData<Int> = MutableLiveData(application.getStatusBarHeight())
     val listSearchProduct = authRepository.listProductSearch
     val edittextSearch = MutableLiveData<String>()
+    val listCart = repository.listCart
 
     private val _userInfo = MutableLiveData<Pair<String,String>>()
     val userInfo : LiveData<Pair<String,String>> = _userInfo

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.appbantraicay.R
 import com.example.appbantraicay.common.interfaces.IActionMenuHeader
+import com.example.appbantraicay.data.model.body.PostCartBody
 import com.example.appbantraicay.data.model.responses.ProductNew
 import com.example.appbantraicay.data.model.responses.User
 import com.example.appbantraicay.data.repository.Repository
@@ -46,8 +47,11 @@ class HomeViewModel @Inject constructor(
 
     //home screen
     override fun onClickBuyCart(productNew: ProductNew) {
+        _productNew.postValue(productNew)
         checkUser(R.id.action_fragmentHome_to_login) {
-
+            postDataCart{
+                navigateToDestination(R.id.action_fragmentHome_to_fragmentCart)
+            }
         }
     }
 
@@ -56,10 +60,10 @@ class HomeViewModel @Inject constructor(
         navigateToDestination(R.id.action_fragmentHome_to_fragmentDetail)
     }
 
-    fun bannerHomeClick(first: Int?, type : Int? = TYPE_HOME) {
+    fun bannerHomeClick(first: Int?, type: Int? = TYPE_HOME) {
         repository.getDataProductFromIdBanner(first.toString()) {
             _productNew.postValue(it)
-            if(type == TYPE_DETAIL) return@getDataProductFromIdBanner
+            if (type == TYPE_DETAIL) return@getDataProductFromIdBanner
             navigateToDestination(R.id.action_fragmentHome_to_fragmentDetail)
         }
     }
@@ -79,6 +83,18 @@ class HomeViewModel @Inject constructor(
 
     fun removeBannerDetail() {
         _productNew.postValue(ProductNew())
+    }
+
+    private fun postDataCart(method: ()->Unit) {
+        sharePrefs.getUserInfo()?.let { user ->
+            _productNew.value?.let {
+                repository.insertCart(PostCartBody(user.id, it.id, it.price)) {
+                    method.invoke()
+                }
+            }
+            return
+        }
+        showToast(R.string.please_sign_in)
     }
 
     private fun checkUser(

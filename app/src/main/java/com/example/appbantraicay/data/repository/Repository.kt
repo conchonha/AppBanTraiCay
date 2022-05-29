@@ -4,8 +4,14 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.appbantraicay.data.model.body.PostCartBody
+import com.example.appbantraicay.data.model.responses.Advertisement
+import com.example.appbantraicay.data.model.responses.Cart
+import com.example.appbantraicay.data.model.responses.Category
+import com.example.appbantraicay.data.model.responses.ProductNew
 import com.example.appbantraicay.data.model.responses.*
 import com.example.appbantraicay.data.services.ApiServices
+import com.example.appbantraicay.utils.SharePrefs
 import com.sangtb.androidlibrary.base.data.repository.BaseRepository
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -17,13 +23,19 @@ import javax.inject.Singleton
 
 
 @Singleton
-class Repository @Inject constructor(private val apiServices: ApiServices) :
+class Repository @Inject constructor(
+    private val apiServices: ApiServices,
+    private val sharePrefs: SharePrefs
+) :
     DefaultLifecycleObserver, IActionRepository, BaseRepository() {
     private val _listAdvertisement = MutableLiveData<List<Advertisement>>()
     override val listAdvertisement: LiveData<List<Advertisement>> = _listAdvertisement
 
     private val _listProductCategory = MutableLiveData<List<Pair<Category?, List<ProductNew>?>>>()
     override val listProductCategory: LiveData<List<Pair<Category?, List<ProductNew>?>>> = _listProductCategory
+
+    private val _listCart = MutableLiveData<List<Cart>>()
+    override val listCart: LiveData<List<Cart>> = _listCart
 
     private val _listDataUser = MutableLiveData<List<User>>()
     override val listDataUser: LiveData<List<User>>
@@ -74,6 +86,10 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
                 _listProductCategory.postValue(pairList.toMutableList())
             }
 
+            sharePrefs.getUserInfo()?.let {
+                getDataCartFromIdUser(it.id)
+            }
+
             // get list data  user
 
             mutableListOf<User>().let {
@@ -114,9 +130,16 @@ class Repository @Inject constructor(private val apiServices: ApiServices) :
         }
     }
 
-    override fun insertCart(idUser: Int, idProduct: Int, price: Int) {
+    override fun insertCart(postCartBody: PostCartBody, onSuccess: (String) -> Unit) {
         callApi {
-//            apiServices.insertCart(idUser, idProduct, price)
+            onSuccess.invoke(apiServices.postCart(postCartBody))
+            getDataCartFromIdUser(postCartBody.idUser)
+        }
+    }
+
+    override fun getDataCartFromIdUser(id: Int?){
+        callApi {
+            _listCart.postValue(apiServices.getDataCartFromIdUser(id))
         }
     }
 

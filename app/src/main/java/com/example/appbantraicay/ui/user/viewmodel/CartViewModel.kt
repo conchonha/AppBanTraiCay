@@ -1,6 +1,7 @@
 package com.example.appbantraicay.ui.user.viewmodel;
 
 import android.app.Application
+import com.example.appbantraicay.data.repository.Repository
 import com.sangtb.androidlibrary.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -10,5 +11,10 @@ import javax.inject.Inject
     Created by SangTB on 5/27/2022
 */
 @HiltViewModel
-public class CartViewModel @Inject constructor(application: Application) : BaseViewModel(application) {
+public class CartViewModel @Inject constructor(
+    application: Application,
+    private val repository: Repository
+) : BaseViewModel(application) {
+    val listCart = repository.listCart
+
 }
