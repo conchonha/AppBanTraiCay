@@ -72,4 +72,17 @@
     <string name="title_text_date_order">Date Order:</string>
     <string name="title_text_status_order">Status Order:</string>
     <string name="order_approving">Order Approving</string>
+    <string name="vnd">Vnd</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="total_price">Total price:</string>
+    <string name="pay">Pay</string>
+    <string name="hint_phone">Phone Number</string>
+    <string name="hint_address">Address</string>
+    <string name="number_product_reached_minimum">Number product reached minimum</string>
+    <string name="update_success">Update Success</string>
+    <string name="remove_success">Remove Success</string>
+    <string name="stripper_is_incorrect">Stripper is incorrect</string>
+    <string name="pay_success">Pay Success</string>
 </resources>

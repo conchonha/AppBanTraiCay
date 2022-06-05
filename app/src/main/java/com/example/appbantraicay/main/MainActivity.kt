@@ -40,8 +40,11 @@ class MainActivity : AppCompatActivity() {
         setHideStatusBarAndControlBar()
 
         toastManager.loadingDialog.observe(this) {
-            if (dialog.isVisible) dialog.dismiss()
-            if (it) dialog.show(supportFragmentManager, TAG)
+            if (dialog.isAdded) dialog.dismiss()
+            if (it){
+                if (dialog.isAdded) dialog.dismiss()
+                dialog.show(supportFragmentManager,TAG)
+            }
         }
 
         toastManager.errorThrowable.observe(this){

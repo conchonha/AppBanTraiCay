@@ -81,6 +81,6 @@
             type="com.example.appbantraicay.data.model.responses.ProductNew" />
         <variable
             name="action"
-            type="com.example.appbantraicay.ui.user.interfaces.IActionItemAdapter" />
+            type="com.example.appbantraicay.ui.user.interfaces.IActionItemAdapterHome" />
     </data>
 </layout>

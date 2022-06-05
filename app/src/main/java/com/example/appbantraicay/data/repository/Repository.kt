@@ -4,7 +4,9 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.appbantraicay.data.model.body.PayCartBody
 import com.example.appbantraicay.data.model.body.PostCartBody
+import com.example.appbantraicay.data.model.body.UpdateCartBody
 import com.example.appbantraicay.data.model.responses.Advertisement
 import com.example.appbantraicay.data.model.responses.Cart
 import com.example.appbantraicay.data.model.responses.Category
@@ -91,7 +93,6 @@ class Repository @Inject constructor(
             }
 
             // get list data  user
-
             mutableListOf<User>().let {
                 it.addAll(apiServices.getListDataUser())
                 _listDataUser.postValue(it)
@@ -146,6 +147,27 @@ class Repository @Inject constructor(
     override fun getDataProductFromIdBanner(id: String?, onSuccess: (ProductNew) -> Unit) {
         callApi {
             onSuccess.invoke(apiServices.getDataProductFromIdBanner(id))
+        }
+    }
+
+    override fun updateCart(updateCartBody: UpdateCartBody, idUser : Int?, onSuccess: (String) -> Unit){
+        callApi {
+            onSuccess.invoke(apiServices.updateCart(updateCartBody))
+            _listCart.postValue(apiServices.getDataCartFromIdUser(idUser))
+        }
+    }
+
+    override fun removeCartItem(idProduct: String?, idUser: Int?, onSuccess: (String) -> Unit) {
+        callApi {
+            onSuccess.invoke(apiServices.removeCartItem(idProduct))
+            _listCart.postValue(apiServices.getDataCartFromIdUser(idUser))
+        }
+    }
+
+    fun payCart(payCartBody: PayCartBody,idUser: Int?,onSuccess: (String) -> Unit){
+        callApi {
+            onSuccess.invoke(apiServices.payCart(payCartBody))
+            _listCart.postValue(apiServices.getDataCartFromIdUser(idUser))
         }
     }
 

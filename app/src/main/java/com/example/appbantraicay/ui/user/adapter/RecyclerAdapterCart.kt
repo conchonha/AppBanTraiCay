@@ -3,6 +3,7 @@ package com.example.appbantraicay.ui.user.adapter;
 import com.example.appbantraicay.R
 import com.example.appbantraicay.data.model.responses.Cart
 import com.example.appbantraicay.databinding.ItemCartBinding
+import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapterCart
 import com.sangtb.androidlibrary.base.BaseRecyclerViewAdapter
 import javax.inject.Inject
 
@@ -15,7 +16,10 @@ public class RecyclerAdapterCart @Inject constructor() : BaseRecyclerViewAdapter
     override val layoutId: Int
         get() = R.layout.item_cart
 
+    var action : IActionItemAdapterCart? = null
+
     override fun onBindViewHolder(holder: BaseViewHolder<ItemCartBinding>, position: Int) {
         holder.binding.cart = items[position]
+        action?.let { holder.binding.action = it }
     }
 }

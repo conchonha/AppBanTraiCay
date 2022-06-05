@@ -1,23 +1,19 @@
 package com.example.appbantraicay.ui.user.viewmodel;
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.appbantraicay.R
-import com.example.appbantraicay.common.interfaces.IActionMenuHeader
 import com.example.appbantraicay.data.model.body.PostCartBody
 import com.example.appbantraicay.data.model.responses.ProductNew
-import com.example.appbantraicay.data.model.responses.User
 import com.example.appbantraicay.data.repository.Repository
-import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapter
+import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapterHome
 import com.example.appbantraicay.utils.Const.TYPE_DETAIL
 import com.example.appbantraicay.utils.Const.TYPE_HOME
 import com.example.appbantraicay.utils.SharePrefs
 import com.example.appbantraicay.utils.checkUser
 import com.sangtb.androidlibrary.base.BaseViewModel
 import com.sangtb.androidlibrary.utils.combine
-import com.sangtb.androidlibrary.utils.getStatusBarHeight
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -31,7 +27,7 @@ class HomeViewModel @Inject constructor(
     application: Application,
     private val repository: Repository,
     private val sharePrefs: SharePrefs
-) : BaseViewModel(application), IActionItemAdapter {
+) : BaseViewModel(application), IActionItemAdapterHome {
     private val _productNew = MutableLiveData(ProductNew())
     val productNew: LiveData<ProductNew?> = _productNew
 

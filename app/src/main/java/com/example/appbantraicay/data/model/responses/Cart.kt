@@ -10,29 +10,29 @@ import com.google.gson.annotations.SerializedName
 data class Cart(
     @SerializedName("Id")
     @Expose
-     var id: Int? = null,
+     var id: Int? = 0,
 
     @SerializedName("Id_User")
     @Expose
-     val idUser: Int? = null,
+     val idUser: Int? = 0,
 
     @SerializedName("Id_Sanpham")
     @Expose
-     val idProduct: String? = null,
+     val idProduct: String? = "",
 
     @SerializedName("Ten_Sanpham")
     @Expose
-     val nameProduct: String? = null,
+     val nameProduct: String? = "",
 
     @SerializedName("SoLuong")
     @Expose
-     val number: Int? = null,
+     val number: Int? = 0,
 
     @SerializedName("ThanhTien")
     @Expose
-     val totalPrice: Int? = null,
+     val totalPrice: Int? = 0,
 
     @SerializedName("Hinh")
     @Expose
-     val image: String? = null
+     val image: String? = ""
 )

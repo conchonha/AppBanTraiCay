@@ -1,9 +1,6 @@
 package com.example.appbantraicay.data.services;
 
-import com.example.appbantraicay.data.model.body.LoginBody
-import com.example.appbantraicay.data.model.body.NewPassBody
-import com.example.appbantraicay.data.model.body.PostCartBody
-import com.example.appbantraicay.data.model.body.RegisterBody
+import com.example.appbantraicay.data.model.body.*
 import com.example.appbantraicay.data.model.responses.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -56,29 +53,42 @@ interface ApiServices {
     @FormUrlEncoded
     @POST("model/giohang/getDataGioHangFromIdUser")
     suspend fun getDataCartFromIdUser(@Field("idUser") idUser : Int?) : List<Cart>
-    //API
+
+    @POST("model/giohang/updategiohang")
+    suspend fun updateCart(
+        @Body updateCartBody: UpdateCartBody
+    ): String
+
+    @FormUrlEncoded
+    @POST("model/giohang/delete")
+    suspend fun removeCartItem(@Field("idsanpham") idProduct: String?): String
+
+    @POST("model/chitietdonhang/dondathang")
+    suspend fun payCart(
+      @Body payCartBody: PayCartBody
+    ): String
+
 
     //API Data User Admin
     @GET("model/taikhoan/gettaikhoan")
     suspend fun getListDataUser(): List<User>
 
-    //API Product Admin
     @FormUrlEncoded
     @POST("model/laptopmacbook/getdatalaptopmacbook")
-    fun getDataProduct(@Field("id") id: String = "1"): List<DataProduct>
+    suspend fun getDataProduct(@Field("id") id: String = "1"): List<DataProduct>
 
     @GET("model/dondathang/getdatadangvanchuyenadmin")
-    fun getDataOrderTransportting(): List<Order>
+    suspend fun getDataOrderTransportting(): List<Order>
 
     @GET("model/dondathang/getdatadahuyadmin")
-    fun getDataOrderDeleted(): List<Order>
+    suspend fun getDataOrderDeleted(): List<Order>
 
     @GET("model/dondathang/dagiaohangadmin")
-    fun getDataOrderSuccess(): List<Order>
+    suspend fun getDataOrderSuccess(): List<Order>
 
     @GET("model/dondathang/choxetduyetadmin")
-    fun getDataOrderApproving(): List<Order>
+    suspend fun getDataOrderApproving(): List<Order>
 
     @GET("model/tintuc/getdatatintuc")
-    fun getDataNews(): List<New>
+    suspend fun getDataNews(): List<New>
 }

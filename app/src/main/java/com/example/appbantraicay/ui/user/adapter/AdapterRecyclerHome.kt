@@ -5,7 +5,7 @@ import com.example.appbantraicay.data.model.responses.Category
 import com.example.appbantraicay.data.model.responses.ProductNew
 import com.example.appbantraicay.databinding.ItemProductHomeBinding
 import com.example.appbantraicay.databinding.ItemTitleHomeBinding
-import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapter
+import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapterHome
 import com.sangtb.androidlibrary.base.BaseRecyclerViewAdapter
 import javax.inject.Inject
 
@@ -19,7 +19,7 @@ class AdapterRecyclerHome @Inject constructor() :
     override val layoutId: Int
         get() = R.layout.item_title_home
 
-    var actionItemCart : IActionItemAdapter? = null
+    var actionItemCart : IActionItemAdapterHome? = null
 
     override fun onBindViewHolder(holder: BaseViewHolder<ItemTitleHomeBinding>, position: Int) {
         items[position].second?.let {

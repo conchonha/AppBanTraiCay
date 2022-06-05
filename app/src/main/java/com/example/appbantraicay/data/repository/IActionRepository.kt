@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.appbantraicay.data.model.responses.*
 import com.sangtb.androidlibrary.utils.SingleLiveEvent
 import com.example.appbantraicay.data.model.body.PostCartBody
+import com.example.appbantraicay.data.model.body.UpdateCartBody
 import com.example.appbantraicay.data.model.responses.Advertisement
 import com.example.appbantraicay.data.model.responses.Cart
 import com.example.appbantraicay.data.model.responses.Category
@@ -32,4 +33,6 @@ interface IActionRepository {
     val listDataNews : LiveData<List<New>>
 
     fun getDataProductFromIdBanner(id : String?,onSuccess: (ProductNew)->Unit)
+    fun updateCart(updateCartBody: UpdateCartBody, idUser : Int?, onSuccess: (String) -> Unit)
+    fun removeCartItem(idProduct : String?, idUser : Int?,onSuccess: (String) -> Unit)
 }

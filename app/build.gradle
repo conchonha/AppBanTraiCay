@@ -82,6 +82,10 @@ dependencies {
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
 
+    //visa thanh toan
+    implementation 'com.stripe:stripe-android:14.5.0'
+    implementation 'com.github.stfalcon:swipeable-button:0.1.0'
+
     
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
