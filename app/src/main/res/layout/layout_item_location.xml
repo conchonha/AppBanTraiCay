@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="icon"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="description"
+            type="Integer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:src="@{icon}"
+            android:scaleType="fitXY"
+            android:padding="@dimen/_7sdp"
+            android:id="@+id/icon"
+            android:layout_height="@dimen/_40sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            android:text="@{description}"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</layout>

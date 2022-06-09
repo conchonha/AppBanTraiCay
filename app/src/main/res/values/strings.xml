@@ -107,5 +107,10 @@
     <string name="font_size15">15</string>
     <string name="font_size16">16</string>
     <string name="save_font_size_success">Save Success</string>
+    <string name="location_address">Address: Da Nang, Hoa Quy Ward, Ngu Hanh Son District</string>
+    <string name="phone">0366426402</string>
+    <string name="email_contact">thaibasang8@gmail.com</string>
+    <string name="school">Truuong Cao Dang CNTT-DHDN</string>
+    <string name="description_school">Duong Nam Ky Khoi Nghia</string>
 
 </resources>

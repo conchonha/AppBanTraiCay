@@ -75,6 +75,7 @@ public class HeaderViewModel @Inject constructor(
             R.id.txt_news -> navigateToDestination(R.id.fragmentNew)
             R.id.txt_profile -> checkNavigate(R.id.fragmentMyAccount)
             R.id.txt_order -> checkNavigate(R.id.fragmentOrder)
+            R.id.txt_help_support -> navigateToDestination(R.id.fragmentLocation)
         }
     }
 

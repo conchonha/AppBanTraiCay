@@ -113,7 +113,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txt_profile" />
 
             <TextView
-                android:id="@+id/txtSearch"
+                android:id="@+id/txt_help_support"
                 style="@style/textStyleTitle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
@@ -122,7 +122,7 @@
                 android:textSize="@dimen/_14ssp"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center_vertical"
-                android:text="@string/search"
+                android:text="@string/lbl_help_support"
                 android:textColor="@color/white"
                 android:textStyle="normal"
                 app:layout_constraintTop_toBottomOf="@+id/txt_order" />
@@ -131,7 +131,7 @@
                 android:id="@+id/group_btn_action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="txt_home,txt_cart,txt_news,txt_profile,txt_order" />
+                app:constraint_referenced_ids="txt_home,txt_cart,txt_news,txt_profile,txt_order,txt_help_support" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

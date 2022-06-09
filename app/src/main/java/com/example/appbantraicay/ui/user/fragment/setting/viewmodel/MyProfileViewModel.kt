@@ -1,7 +1,6 @@
 package com.example.appbantraicay.ui.user.fragment.setting.viewmodel
 
 import android.app.Application
-import android.util.Log
 import com.example.appbantraicay.R
 import com.example.appbantraicay.utils.SharePrefs
 import com.sangtb.androidlibrary.base.BaseViewModel
@@ -21,8 +20,8 @@ class MyProfileViewModel @Inject constructor(
     fun onClickItem(itemId : Int){
         when(itemId){
             R.string.lbl_my_profile ->navigateToDestination(R.id.action_fragmentMyAccount_to_fragmentMyProfile)
-            R.string.lbl_change_password -> {}
-            R.string.lbl_help_support -> {}
+            R.string.lbl_change_password -> navigateToDestination(R.id.action_fragmentMyAccount_to_fragmentNewPassword)
+            R.string.lbl_help_support -> navigateToDestination(R.id.action_fragmentMyAccount_to_fragmentLocation)
             R.string.lbl_about -> navigateToDestination(R.id.action_fragmentMyAccount_to_fragmentAbout)
             R.string.lbl_setting ->navigateToDestination(R.id.action_fragmentMyAccount_to_fragmentSetting)
             R.string.lbl_logout-> {

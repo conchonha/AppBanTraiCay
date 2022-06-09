@@ -135,6 +135,12 @@
         <action
             android:id="@+id/action_fragmentMyAccount_to_fragmentSetting"
             app:destination="@id/fragmentSetting" />
+        <action
+            android:id="@+id/action_fragmentMyAccount_to_fragmentLocation"
+            app:destination="@id/fragmentLocation" />
+        <action
+            android:id="@+id/action_fragmentMyAccount_to_fragmentNewPassword"
+            app:destination="@id/fragmentNewPassword" />
     </fragment>
     <fragment
         android:id="@+id/fragmentAbout"
@@ -144,4 +150,8 @@
         android:id="@+id/fragmentSetting"
         android:name="com.example.appbantraicay.ui.user.fragment.setting.FragmentSetting"
         android:label="FragmentSetting" />
+    <fragment
+        android:id="@+id/fragmentLocation"
+        android:name="com.example.appbantraicay.ui.user.fragment.setting.FragmentLocation"
+        android:label="FragmentLocation" />
 </navigation>
