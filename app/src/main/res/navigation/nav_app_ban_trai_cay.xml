@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.example.appbantraicay.ui.user.fragment.FragmentHome"
+        android:name="com.example.appbantraicay.ui.user.fragment.home.FragmentHome"
         android:label="FragmentHome">
         <action
             android:id="@+id/action_fragmentHome_to_fragmentDetail"
@@ -17,11 +17,12 @@
         <action
             android:id="@+id/action_fragmentHome_to_fragmentCart"
             app:destination="@id/fragmentCart" />
+
     </fragment>
     <fragment
         android:id="@+id/fragmentDetail"
-        android:name="com.example.appbantraicay.ui.user.fragment.FragmentDetail"
-        android:label="FragmentDetail" >
+        android:name="com.example.appbantraicay.ui.user.fragment.home.FragmentDetail"
+        android:label="FragmentDetail">
         <action
             android:id="@+id/action_fragmentDetail_to_fragmentCart"
             app:destination="@id/fragmentCart" />
@@ -54,7 +55,10 @@
     <fragment
         android:id="@+id/orderFragment"
         android:name="com.example.appbantraicay.ui.admin.OrderFragment"
-        android:label="OrderFragment" />
+        android:label="OrderFragment">
+
+    </fragment>
+
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.appbantraicay.ui.admin.ProductFragment"
@@ -70,20 +74,19 @@
     <fragment
         android:id="@+id/login"
         android:name="com.example.appbantraicay.ui.auth.fragment.FragmentLogin"
-        android:label="Login" >
+        android:label="Login">
         <action
             android:id="@+id/action_login_to_fragmentNewPassword"
             app:destination="@id/fragmentNewPassword" />
         <action
             android:id="@+id/action_login_to_fragmentRegister"
             app:destination="@id/fragmentRegister" />
-        <deepLink
-            app:uri="@string/deeplink_action_login" />
+
     </fragment>
     <fragment
         android:id="@+id/fragmentCart"
-        android:name="com.example.appbantraicay.ui.user.fragment.FragmentCart"
-        android:label="FragmentCart" >
+        android:name="com.example.appbantraicay.ui.user.fragment.cart.FragmentCart"
+        android:label="FragmentCart">
         <action
             android:id="@+id/action_fragmentCart_to_fragmentPay"
             app:destination="@id/fragmentPay" />
@@ -98,6 +101,47 @@
         android:label="FragmentRegister" />
     <fragment
         android:id="@+id/fragmentPay"
-        android:name="com.example.appbantraicay.ui.user.fragment.FragmentPay"
-        android:label="FragmentPay" />
+        android:name="com.example.appbantraicay.ui.user.fragment.cart.FragmentPay"
+        android:label="FragmentPay"/>
+    <fragment
+        android:id="@+id/fragmentMyProfile"
+        android:name="com.example.appbantraicay.ui.user.fragment.setting.FragmentMyProfile"
+        android:label="FragmentMyProfile">
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentNew"
+        android:name="com.example.appbantraicay.ui.user.fragment.FragmentNew"
+        android:label="FragmentNew" />
+    <fragment
+        android:id="@+id/fragmentOrder"
+        android:name="com.example.appbantraicay.ui.user.fragment.FragmentOrder"
+        android:label="FragmentOrder" />
+
+    <action android:id="@+id/action_global_fragmentHome"
+        app:destination="@id/fragmentHome"
+        app:launchSingleTop="true"
+       />
+    <fragment
+        android:id="@+id/fragmentMyAccount"
+        android:name="com.example.appbantraicay.ui.user.fragment.setting.FragmentMyAccount"
+        android:label="FragmentMyAccount" >
+        <action
+            android:id="@+id/action_fragmentMyAccount_to_fragmentMyProfile"
+            app:destination="@id/fragmentMyProfile" />
+        <action
+            android:id="@+id/action_fragmentMyAccount_to_fragmentAbout"
+            app:destination="@id/fragmentAbout" />
+        <action
+            android:id="@+id/action_fragmentMyAccount_to_fragmentSetting"
+            app:destination="@id/fragmentSetting" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAbout"
+        android:name="com.example.appbantraicay.ui.user.fragment.setting.FragmentAbout"
+        android:label="FragmentAbout" />
+    <fragment
+        android:id="@+id/fragmentSetting"
+        android:name="com.example.appbantraicay.ui.user.fragment.setting.FragmentSetting"
+        android:label="FragmentSetting" />
 </navigation>

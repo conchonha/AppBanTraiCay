@@ -1,4 +1,4 @@
-package com.example.appbantraicay.ui.user.fragment;
+package com.example.appbantraicay.ui.user.fragment.home;
 
 import android.os.Bundle
 import android.os.Handler
@@ -11,7 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.BannerFragmentBinding
 import com.example.appbantraicay.ui.user.adapter.BannerAdapter
-import com.example.appbantraicay.ui.user.viewmodel.HomeViewModel
+import com.example.appbantraicay.ui.user.fragment.home.viewmodel.HomeViewModel
 import com.sangtb.androidlibrary.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.example.appbantraicay.ui.user.viewmodel;
+package com.example.appbantraicay.ui.user.fragment.home.viewmodel;
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -43,7 +43,7 @@ class HomeViewModel @Inject constructor(
 
     //home screen
     override fun onClickBuyCart(productNew: ProductNew) {
-        _productNew.postValue(productNew)
+        _productNew.value = productNew
         checkUser(R.id.action_fragmentHome_to_login) {
             postDataCart{
                 navigateToDestination(R.id.action_fragmentHome_to_fragmentCart)
@@ -67,7 +67,9 @@ class HomeViewModel @Inject constructor(
     // screen detail
     fun onBuyNow() {
         checkUser {
-            navigateToDestination(R.id.action_fragmentDetail_to_fragmentCart)
+            postDataCart{
+                navigateToDestination(R.id.action_fragmentDetail_to_fragmentCart)
+            }
         }
     }
 

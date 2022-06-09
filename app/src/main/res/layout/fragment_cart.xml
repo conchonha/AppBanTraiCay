@@ -6,7 +6,7 @@
     <data>
         <variable
             name="action"
-            type="com.example.appbantraicay.ui.user.viewmodel.CartViewModel" />
+            type="com.example.appbantraicay.ui.user.fragment.cart.viewmodel.CartViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

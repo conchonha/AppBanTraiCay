@@ -9,11 +9,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:launchMode="singleTask"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppBanTraiCay">
         <activity
             android:name=".main.MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

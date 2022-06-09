@@ -47,7 +47,7 @@
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center_vertical"
-                android:text="@string/menu"
+                android:text="@string/home"
                 android:textColor="@color/white"
                 android:textStyle="normal"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +83,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txt_cart" />
 
             <TextView
-                android:id="@+id/txt_account"
+                android:id="@+id/txt_profile"
                 style="@style/textStyleTitle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
@@ -92,7 +92,7 @@
                 android:textSize="@dimen/_14ssp"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center_vertical"
-                android:text="@string/account"
+                android:text="@string/my_profile"
                 android:textColor="@color/white"
                 android:textStyle="normal"
                 app:layout_constraintTop_toBottomOf="@+id/txt_news" />
@@ -110,7 +110,7 @@
                 android:text="@string/order"
                 android:textColor="@color/white"
                 android:textStyle="normal"
-                app:layout_constraintTop_toBottomOf="@+id/txt_account" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_profile" />
 
             <TextView
                 android:id="@+id/txtSearch"
@@ -131,7 +131,7 @@
                 android:id="@+id/group_btn_action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="txt_home,txt_cart,txt_news,txt_account,txt_order" />
+                app:constraint_referenced_ids="txt_home,txt_cart,txt_news,txt_profile,txt_order" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

@@ -1,8 +1,7 @@
-package com.example.appbantraicay.ui.user.viewmodel;
+package com.example.appbantraicay.ui.user.fragment.home.viewmodel;
 
 import android.app.Application
 import android.text.Editable
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -13,7 +12,6 @@ import com.example.appbantraicay.data.repository.Repository
 import com.example.appbantraicay.data.repository.auth.AuthRepository
 import com.example.appbantraicay.utils.SharePrefs
 import com.sangtb.androidlibrary.base.BaseViewModel
-import com.sangtb.androidlibrary.base.action.ItemMenuAction
 import com.sangtb.androidlibrary.utils.getStatusBarHeight
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -30,7 +28,7 @@ public class HeaderViewModel @Inject constructor(
     private val sharePrefs: SharePrefs,
     private val authRepository: AuthRepository,
     private val repository: Repository
-) : BaseViewModel(application), IActionMenuHeader{
+) : BaseViewModel(application), IActionMenuHeader {
     val heightStatusBar: LiveData<Int> = MutableLiveData(application.getStatusBarHeight())
     val listSearchProduct = authRepository.listProductSearch
     val edittextSearch = MutableLiveData<String>()
@@ -43,10 +41,6 @@ public class HeaderViewModel @Inject constructor(
         if(userInfo.value?.first != EMPTY){
             sharePrefs.removeUser()
         }
-    }
-
-    override fun onClickItemTitle(itemTitleId: Int) {
-        Log.d(TAG, "onClickItemTitle Header Menu: ")
     }
 
     fun doAfterSearchChange(editable: Editable?){
@@ -67,5 +61,28 @@ public class HeaderViewModel @Inject constructor(
 
     companion object{
         private const val EMPTY = ""
+    }
+
+    fun onClickSignOut(){
+        navigateToDestination(R.id.login)
+        signOut()
+    }
+
+    override fun onClickItemTitle(itemTitleId: Int) {
+        when(itemTitleId){
+            R.id.txt_home -> navigateToDestination(R.id.action_global_fragmentHome)
+            R.id.txt_cart -> checkNavigate(R.id.fragmentCart)
+            R.id.txt_news -> navigateToDestination(R.id.fragmentNew)
+            R.id.txt_profile -> checkNavigate(R.id.fragmentMyAccount)
+            R.id.txt_order -> checkNavigate(R.id.fragmentOrder)
+        }
+    }
+
+    private fun checkNavigate(actionId : Int){
+        if(sharePrefs.getUserInfo() != null){
+            navigateToDestination(actionId)
+            return
+        }
+        showToast(R.string.please_sign_in)
     }
 }

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="action"
+            type="com.example.appbantraicay.ui.user.fragment.setting.viewmodel.MyProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/_18sdp"
+        android:paddingTop="@dimen/_40sdp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/TextTitle"
+            android:text="@string/lbl_setting"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->action.backScreen()}"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_close"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:stretchColumns="1"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle">
+
+            <TableRow android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/TextContent"
+                    android:text="@string/lbl_font"
+                    android:textColor="@color/h666666" />
+
+                <TextView
+                    android:id="@+id/txtSettingFont"
+                    style="@style/EdittextUpdateProfile"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="0dp"
+                    app:drawableEndCompat="@drawable/ic_drop_down" />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="@dimen/_18sdp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/TextContent"
+                    android:text="@string/lbl_font_size"
+                    android:textColor="@color/h666666" />
+
+                <TextView
+                    android:id="@+id/txtSettingFontSize"
+                    style="@style/EdittextUpdateProfile"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/dp0"
+                    app:drawableEndCompat="@drawable/ic_drop_down" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="@dimen/_18sdp">
+
+                <TextView
+                    style="@style/TextContent"
+                    android:text="@string/lbl_get_notifications"
+                    android:textColor="@color/h666666" />
+
+                <Switch
+                    android:layout_marginStart="@dimen/_18sdp"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="@dimen/_18sdp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/TextContent"
+                    android:text="@string/lbl_favorite_history"
+                    android:textColor="@color/h666666" />
+
+                <ImageView
+                    android:layout_height="@dimen/_13sdp"
+                    android:layout_gravity="end|center_vertical"
+                    android:paddingEnd="@dimen/_18sdp"
+                    android:src="@drawable/ic_next" />
+            </TableRow>
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/Button"
+                android:layout_marginTop="@dimen/_45sdp"
+                android:onClick="@{()->action.onSaveButton()}"
+                android:text="@string/lbl_save" />
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

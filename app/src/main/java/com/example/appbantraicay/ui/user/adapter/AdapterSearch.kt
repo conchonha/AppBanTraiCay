@@ -17,9 +17,10 @@ public class AdapterSearch @Inject constructor() : BaseRecyclerViewAdapter<Produ
 
     override fun onBindViewHolder(holder: BaseViewHolder<ItemProductSearchBinding>, position: Int) {
         holder.binding.apply {
-            product = items[position]
+            val productNew = items[position]
+            product = productNew
 
-            root.setOnClickListener { listener?.invoke(it,items[position],position) }
+            root.setOnClickListener { listener?.invoke(it,productNew,position) }
         }
     }
 }

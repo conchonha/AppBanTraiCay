@@ -66,7 +66,6 @@
     <string name="register_success">Register Success</string>
     <string name="sing_out">Sign out</string>
     <string name="sign_in">Sign In</string>
-    <string name="deeplink_action_login">http://com.example.appbantraicay.fragment_login</string>
     <string name="please_sign_in">Please sign in</string>
     <string name="text_title_id">Id:</string>
     <string name="title_text_date_order">Date Order:</string>
@@ -85,4 +84,28 @@
     <string name="remove_success">Remove Success</string>
     <string name="stripper_is_incorrect">Stripper is incorrect</string>
     <string name="pay_success">Pay Success</string>
+    <string name="home">Home</string>
+    <string name="my_profile">My Profile</string>
+    <string name="lbl_change_password">Change Password</string>
+    <string name="lbl_my_profile">My Profile</string>
+    <string name="lbl_help_support">Help Support</string>
+    <string name="lbl_about">About</string>
+    <string name="lbl_setting">Setting</string>
+    <string name="lbl_logout">Logout</string>
+    <string name="lbl_font">Font</string>
+    <string name="lbl_font_size">Font Size</string>
+    <string name="lbl_get_notifications">Get Notification</string>
+    <string name="lbl_favorite_history">Favarite History</string>
+    <string name="lbl_save">Save</string>
+    <string name="font1">Font Family 1</string>
+    <string name="font2">Font Family 2</string>
+    <string name="font3">Font Family 3</string>
+    <string name="font4">Font Family 4</string>
+    <string name="font_size12">12</string>
+    <string name="font_size13">13</string>
+    <string name="font_size14">14</string>
+    <string name="font_size15">15</string>
+    <string name="font_size16">16</string>
+    <string name="save_font_size_success">Save Success</string>
+
 </resources>

@@ -1,11 +1,11 @@
-package com.example.appbantraicay.ui.user.fragment;
+package com.example.appbantraicay.ui.user.fragment.home;
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.HomeFragmentBinding
-import com.example.appbantraicay.ui.user.viewmodel.HomeViewModel
+import com.example.appbantraicay.ui.user.fragment.home.viewmodel.HomeViewModel
 import com.example.appbantraicay.ui.user.adapter.AdapterRecyclerHome
 import com.sangtb.androidlibrary.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint

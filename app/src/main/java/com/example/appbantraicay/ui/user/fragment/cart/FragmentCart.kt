@@ -1,15 +1,13 @@
-package com.example.appbantraicay.ui.user.fragment;
+package com.example.appbantraicay.ui.user.fragment.cart;
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.FragmentCartBinding
 import com.example.appbantraicay.ui.user.adapter.RecyclerAdapterCart
-import com.example.appbantraicay.ui.user.viewmodel.CartViewModel
+import com.example.appbantraicay.ui.user.fragment.cart.viewmodel.CartViewModel
 import com.sangtb.androidlibrary.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

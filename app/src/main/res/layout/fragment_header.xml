@@ -5,8 +5,8 @@
     <data>
         <import type="android.view.View"/>
         <variable
-            name="action"
-            type="com.example.appbantraicay.ui.user.viewmodel.HeaderViewModel" />
+            name="viewModel1"
+            type="com.example.appbantraicay.ui.user.fragment.home.viewmodel.HeaderViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:paddingHorizontal="@dimen/_10sdp"
             android:orientation="vertical"
             android:paddingBottom="@dimen/_10ssp"
-            android:paddingTop="@{Float.valueOf(action.heightStatusBar)+  @dimen/_10sdp}">
+            android:paddingTop="@{Float.valueOf(viewModel1.heightStatusBar)+  @dimen/_10sdp}">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="@dimen/_5sdp"
                     android:drawableStart="@drawable/ic_user"
-                    android:text="@{action.userInfo.first}"
+                    android:text="@{viewModel1.userInfo.first}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
@@ -42,10 +42,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:drawablePadding="@dimen/_5sdp"
                     android:drawableStart="@drawable/ic_password"
-                    android:text="@{action.userInfo.second}"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="@{viewModel1.userInfo.second}"
                     android:textColor="@color/white"
+                    android:onClick="@{()->viewModel1.onClickSignOut()}"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -55,7 +56,7 @@
                 android:layout_height="@dimen/dp50"
                 android:paddingHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10ssp"
-                android:text="@={action.edittextSearch}"
+                android:text="@={viewModel1.edittextSearch}"
                 android:id="@+id/edtSearch"
                 android:background="@color/white"
                 android:drawableEnd="@drawable/ic_search"
@@ -68,7 +69,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:drawableStart="@drawable/ic_cart"
                 android:gravity="center_vertical"
-                android:text="@{String.valueOf(action.listCart.size())+ ' ' + @string/cart}"
+                android:text="@{String.valueOf(viewModel1.listCart.size())+ ' ' + @string/cart}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
         </LinearLayout>
@@ -78,7 +79,7 @@
             android:layout_height="@dimen/_225sdp"
             android:id="@+id/banner"
             android:layout_marginTop="@dimen/_40sdp"
-            android:name="com.example.appbantraicay.ui.user.fragment.FragmentBanner"
+            android:name="com.example.appbantraicay.ui.user.fragment.home.FragmentBanner"
             app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -87,7 +88,7 @@
             android:id="@+id/recycler_search"
             android:layout_marginTop="@dimen/_40sdp"
             android:orientation="vertical"
-            android:visibility="@{action.edittextSearch.length() == 0 ? View.GONE : View.VISIBLE}"
+            android:visibility="@{viewModel1.edittextSearch.length() == 0 ? View.GONE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:background="@color/white"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -98,7 +99,7 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:setMenuListener="@{action}"
+            app:setMenuListener="@{viewModel1}"
             app:layout_constraintTop_toBottomOf="@+id/line_group1"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

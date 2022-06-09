@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="com.example.appbantraicay.R"/>
+        <variable
+            name="viewModel"
+            type="com.example.appbantraicay.ui.user.fragment.setting.viewmodel.MyProfileViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_220sdp"
+            android:background="@drawable/background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_user"
+                app:tint="@color/white" />
+
+            <TextView
+                style="@style/TextTitle"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_marginStart="@dimen/dp15"
+            android:layout_marginTop="-40dp"
+            android:layout_marginEnd="@dimen/dp15"
+            android:layout_marginBottom="@dimen/_2sdp"
+            app:cardCornerRadius="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+                <include
+                    android:id="@+id/rowAccountProfile"
+                    layout="@layout/layout_row_account"
+                    app:iconLeft='@{@drawable/ic_account}'
+                    app:title='@{R.string.lbl_my_profile}'
+                    app:viewModel = "@{viewModel}"/>
+
+                <include
+                    android:id="@+id/rowAccountChangePass"
+                    layout="@layout/layout_row_account"
+                    app:iconLeft='@{@drawable/ic_change_password}'
+                    app:title='@{R.string.lbl_change_password}'
+                    app:viewModel = "@{viewModel}"/>
+
+                <include
+                    android:id="@+id/rowAccountSupport"
+                    layout="@layout/layout_row_account"
+                    app:iconLeft='@{@drawable/ic_help}'
+                    app:title='@{R.string.lbl_help_support}'
+                    app:viewModel = "@{viewModel}"/>
+
+                <include
+                    android:id="@+id/rowAccountAbout"
+                    layout="@layout/layout_row_account"
+                    app:iconLeft='@{@drawable/ic_about}'
+                    app:title='@{R.string.lbl_about}'
+                    app:viewModel = "@{viewModel}"/>
+
+                <include
+                    android:id="@+id/rowAccountSetting"
+                    layout="@layout/layout_row_account"
+                    app:iconLeft='@{@drawable/ic_setting}'
+                    app:title='@{R.string.lbl_setting}'
+                    app:viewModel = "@{viewModel}"/>
+
+                <include
+                    android:id="@+id/rowAccountLogout"
+                    layout="@layout/layout_row_account"
+                    app:iconLeft='@{@drawable/ic_logout}'
+                    app:title='@{R.string.lbl_logout}'
+                    app:viewModel = "@{viewModel}"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</layout>

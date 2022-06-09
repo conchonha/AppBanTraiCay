@@ -1,6 +1,7 @@
 package com.example.appbantraicay.utils
 
  object Const {
+     const val WEB_VIEW_URL = "https://traicaytonyteo.com/"
      const val EMAIL = "thaibasang08081999@gmail.com"
      const val PASS = "321@Abc#"
      const val NAME_SHARE_PREFS = "NAME_SHARE_PREFS"

@@ -13,7 +13,7 @@
 
             <fragment
                 android:id="@+id/fragmentHeader"
-                android:name="com.example.appbantraicay.ui.user.fragment.FragmentHeader"
+                android:name="com.example.appbantraicay.ui.user.fragment.home.FragmentHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,13 +38,6 @@
                     android:textStyle="bold"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textColor="@color/purple_700"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.productNew.thongSoKyThuat}"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -80,11 +73,13 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/linear_image_detail"/>
+                    android:text="@{viewModel.productNew.description}"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -103,6 +98,6 @@
 
         <variable
             name="viewModel"
-            type="com.example.appbantraicay.ui.user.viewmodel.HomeViewModel" />
+            type="com.example.appbantraicay.ui.user.fragment.home.viewmodel.HomeViewModel" />
     </data>
 </layout>
