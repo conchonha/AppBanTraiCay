@@ -152,6 +152,6 @@
         android:label="FragmentSetting" />
     <fragment
         android:id="@+id/fragmentLocation"
-        android:name="com.example.appbantraicay.ui.user.fragment.setting.FragmentLocation"
+        android:name="com.example.appbantraicay.ui.user.fragment.home.FragmentLocation"
         android:label="FragmentLocation" />
 </navigation>

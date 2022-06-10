@@ -69,6 +69,11 @@ interface ApiServices {
     ): String
 
 
+    @POST("model/taikhoan/updatethongtin")
+    suspend fun updateMyProfile(
+       @Body updateMyProfile: UpdateMyProfile
+    ): List<User>
+
     //API Data User Admin
     @GET("model/taikhoan/gettaikhoan")
     suspend fun getListDataUser(): List<User>

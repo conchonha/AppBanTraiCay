@@ -112,5 +112,13 @@
     <string name="email_contact">thaibasang8@gmail.com</string>
     <string name="school">Truuong Cao Dang CNTT-DHDN</string>
     <string name="description_school">Duong Nam Ky Khoi Nghia</string>
+    <string name="lbl_info">Info</string>
+    <string name="lbl_update">Update</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_phone">Phone</string>
+    <string name="lbl_address">Address</string>
+    <string name="lbl_hint_address">Permanent address</string>
+    <string name="lbl_hint_phone">+84 0xxx-xxx-xxx</string>
+    <string name="lbl_hint_email">xxxx@gmail.com</string>
 
 </resources>

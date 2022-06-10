@@ -34,8 +34,10 @@ import java.util.*
     Created by SangTB on 5/18/2022
 */
 @BindingAdapter("setImageUrl")
-fun setUrlImage(imageView: ImageView, src: String) {
-    Picasso.get().load(src).error(R.drawable.img_error).into(imageView)
+fun setUrlImage(imageView: ImageView, src: String?) {
+    src?.let {
+        Picasso.get().load(src).error(R.drawable.img_error).into(imageView)
+    }
 }
 
 fun SharePrefs.checkUser() = get(SharePrefs.KEY_USER, String::class.java) != SharePrefs.EMPTY

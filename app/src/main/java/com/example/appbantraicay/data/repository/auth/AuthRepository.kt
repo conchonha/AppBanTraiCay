@@ -9,6 +9,7 @@ import com.example.appbantraicay.R
 import com.example.appbantraicay.data.model.body.LoginBody
 import com.example.appbantraicay.data.model.body.NewPassBody
 import com.example.appbantraicay.data.model.body.RegisterBody
+import com.example.appbantraicay.data.model.body.UpdateMyProfile
 import com.example.appbantraicay.data.model.responses.ProductNew
 import com.example.appbantraicay.data.model.responses.User
 import com.example.appbantraicay.data.services.ApiServices
@@ -24,21 +25,22 @@ import javax.inject.Singleton
 */
 
 @Singleton
-class AuthRepository @Inject constructor(private val apiServices: ApiServices) : BaseRepository(),DefaultLifecycleObserver{
+class AuthRepository @Inject constructor(private val apiServices: ApiServices) : BaseRepository(),
+    DefaultLifecycleObserver {
     private val _listProductSearch = MutableLiveData<List<ProductNew>>()
-    val listProductSearch : LiveData<List<ProductNew>> = _listProductSearch
+    val listProductSearch: LiveData<List<ProductNew>> = _listProductSearch
 
-    fun login(loginBody: LoginBody,onSuccess: (List<User>)->Unit){
+    fun login(loginBody: LoginBody, onSuccess: (List<User>) -> Unit) {
         callApi {
             onSuccess.invoke(apiServices.postLogin(loginBody))
         }
     }
 
-    fun checkEmail(email: String,content: String,code: String,onSuccess: (Int?)->Unit){
+    fun checkEmail(email: String, content: String, code: String, onSuccess: (Int?) -> Unit) {
         callApi {
             val value = apiServices.checkEmail(email)
-            if(value == Const.SUCCESS){
-                JavaMailAPI.sendMail(email,content,code)
+            if (value == Const.SUCCESS) {
+                JavaMailAPI.sendMail(email, content, code)
                 onSuccess.invoke(null)
                 return@callApi
             }
@@ -46,22 +48,26 @@ class AuthRepository @Inject constructor(private val apiServices: ApiServices) :
         }
     }
 
-    fun updatePasswordForEmail(newPassBody: NewPassBody,onSuccess: (String) -> Unit){
+    fun updatePasswordForEmail(newPassBody: NewPassBody, onSuccess: (String) -> Unit) {
         callApi {
-            onSuccess.invoke( apiServices.updatePasswordForEmail(newPassBody))
+            onSuccess.invoke(apiServices.updatePasswordForEmail(newPassBody))
         }
     }
 
-    fun register(registerBody: RegisterBody,onSuccess: (String) -> Unit){
+    fun register(registerBody: RegisterBody, onSuccess: (String) -> Unit) {
         callApi {
             onSuccess.invoke(apiServices.register(registerBody))
         }
     }
 
-    suspend fun search(str : String){
+    fun updateMyProFile(updateMyProfile: UpdateMyProfile,onSuccess: (List<User>) -> Unit){
+        callApi {  onSuccess.invoke(apiServices.updateMyProfile(updateMyProfile)) }
+    }
+
+    suspend fun search(str: String) {
         try {
             _listProductSearch.postValue(apiServices.searchProduct(str))
-        }catch (e : Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
             Log.d(TAG, "search: ${e.message}")
         }

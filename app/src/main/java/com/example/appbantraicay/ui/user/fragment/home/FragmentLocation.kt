@@ -1,4 +1,4 @@
-package com.example.appbantraicay.ui.user.fragment.setting
+package com.example.appbantraicay.ui.user.fragment.home
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.FragmentLocationBinding
+import com.example.appbantraicay.ui.user.fragment.home.viewmodel.HomeViewModel
 import com.example.appbantraicay.ui.user.fragment.setting.viewmodel.MyProfileViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -24,13 +25,13 @@ import dagger.hilt.android.AndroidEntryPoint
 */
 
 @AndroidEntryPoint
-class FragmentLocation : BaseFragment<FragmentLocationBinding,MyProfileViewModel>(),
+class FragmentLocation : BaseFragment<FragmentLocationBinding,HomeViewModel>(),
     OnMapReadyCallback {
     private var mMap: GoogleMap? = null
 
     override val layoutId: Int
         get() = R.layout.fragment_location
-    override val viewModel: MyProfileViewModel by activityViewModels()
+    override val viewModel: HomeViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
