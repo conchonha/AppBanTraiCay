@@ -37,7 +37,7 @@ public class HeaderViewModel @Inject constructor(
     private val _userInfo = MutableLiveData<Pair<String,String>>()
     val userInfo : LiveData<Pair<String,String>> = _userInfo
 
-    fun signOut(){
+    private fun signOut(){
         if(userInfo.value?.first != EMPTY){
             sharePrefs.removeUser()
         }

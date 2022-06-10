@@ -5,7 +5,7 @@ package com.example.appbantraicay.utils
      const val EMAIL = "thaibasang08081999@gmail.com"
      const val PASS = "321@Abc#"
      const val NAME_SHARE_PREFS = "NAME_SHARE_PREFS"
-     const val BASE_URL = "http://192.168.1.6/AppBanTraiCayLaravel/public/"
+     const val BASE_URL = "http://192.168.1.6/cuahang/public/api/"
      const val KEY_STRIPPER = "pk_test_y8urHXEikr7ysm3tk7uRilcp00aTSdh57w"
      const val SUCCESS = "Success"
      const val STATUS_CART = "Chờ Xét Duyệt"

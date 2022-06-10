@@ -74,6 +74,10 @@ interface ApiServices {
        @Body updateMyProfile: UpdateMyProfile
     ): List<User>
 
+    @FormUrlEncoded
+    @POST("model/dondathang/donhangganday")
+    suspend fun getDataOderFromIdUser(@Field("idtaikhoan") idUser: String?): List<Order>
+
     //API Data User Admin
     @GET("model/taikhoan/gettaikhoan")
     suspend fun getListDataUser(): List<User>
