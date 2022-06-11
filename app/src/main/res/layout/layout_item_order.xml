@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="oder"
+            type="com.example.appbantraicay.data.model.responses.Order" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardBackgroundColor="@color/black"
+        android:layout_marginHorizontal="@dimen/_7sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_height="@dimen/_100sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{oder.status}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+
+            <TextView
+                android:id="@+id/tvStepToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txtKm1"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginBottom="-40dp"
+                android:layout_toStartOf="@+id/txtKm1"
+                android:layout_toLeftOf="@+id/txtKm1"
+                android:text="@{oder.idOrder.toString()}"
+                android:textColor="#fff"
+                android:textSize="@dimen/_30ssp" />
+
+            <TextView
+                android:id="@+id/txtKm1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tvTimeToday"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/code"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_30ssp" />
+
+            <TextView
+                android:id="@+id/tvTimeToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:text="@{oder.dateBooking}"
+                android:textColor="@color/white"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:textSize="@dimen/_12ssp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

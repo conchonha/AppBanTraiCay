@@ -6,17 +6,17 @@ import com.google.gson.annotations.SerializedName
 data class Order(
     @SerializedName("Id_DonHang")
     @Expose
-    var idDonHang: Int? = null,
+    var idOrder: Int? = null,
 
     @SerializedName("NgayDat")
     @Expose
-    var ngayDat: String? = null,
+    var dateBooking: String? = null,
 
     @SerializedName("TrinhTrang")
     @Expose
-    var trinhTrang: String? = null,
+    var status: String? = null,
 
     @SerializedName("Id_TaiKhoan")
     @Expose
-    var idTaiKhoan: Int? = null,
+    var idUser: Int? = null,
 )

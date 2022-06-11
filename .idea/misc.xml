@@ -44,6 +44,7 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_change_password.xml" value="0.212" />
         <entry key="app/src/main/res/drawable-anydpi/ic_help.xml" value="0.212" />
         <entry key="app/src/main/res/drawable-anydpi/ic_logout.xml" value="0.212" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_menu_tool_bar.xml" value="0.2145" />
         <entry key="app/src/main/res/drawable-anydpi/ic_setting.xml" value="0.212" />
         <entry key="app/src/main/res/drawable-anydpi/ic_user.xml" value="0.168" />
         <entry key="app/src/main/res/drawable-xxhdpi/bg_location.xml" value="0.2005" />
@@ -60,17 +61,21 @@
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.1721014492753623" />
         <entry key="app/src/main/res/layout/fragment_new.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/fragment_new_password.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/layout/fragment_order.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/fragment_order_user.xml" value="0.10677083333333333" />
         <entry key="app/src/main/res/layout/fragment_pay.xml" value="0.2109375" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/item_cart.xml" value="0.22" />
         <entry key="app/src/main/res/layout/layout_header_menu.xml" value="0.13645833333333332" />
         <entry key="app/src/main/res/layout/layout_item_location.xml" value="0.19166666666666668" />
+        <entry key="app/src/main/res/layout/layout_item_order.xml" value="0.22" />
         <entry key="app/src/main/res/layout/layout_row_account.xml" value="0.35217794253938833" />
         <entry key="app/src/main/res/layout/layout_row_profile_account.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/layout_underlined_account.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/my_profile.xml" value="0.15885416666666666" />
         <entry key="app/src/main/res/menu/menu_font.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/menu/menu_font_size.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/menu/menu_status.xml" value="0.23697916666666666" />
       </map>
     </option>
   </component>

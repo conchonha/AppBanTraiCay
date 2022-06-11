@@ -115,7 +115,7 @@
         android:label="FragmentNew" />
     <fragment
         android:id="@+id/fragmentOrder"
-        android:name="com.example.appbantraicay.ui.user.fragment.FragmentOrder"
+        android:name="com.example.appbantraicay.ui.user.fragment.order.FragmentOrder"
         android:label="FragmentOrder" />
 
     <action android:id="@+id/action_global_fragmentHome"

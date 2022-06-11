@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_pending_approve"
+        android:title="@string/pending_and_approve"/>
+    <item android:id="@+id/being_transported"
+        android:title="being_transported"/>
+    <item android:id="@+id/delivered"
+        android:title="@string/delivered"/>
+    <item android:id="@+id/canceled"
+        android:title="@string/canceled"/>
+</menu>

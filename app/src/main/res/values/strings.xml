@@ -120,5 +120,10 @@
     <string name="lbl_hint_address">Permanent address</string>
     <string name="lbl_hint_phone">+84 0xxx-xxx-xxx</string>
     <string name="lbl_hint_email">xxxx@gmail.com</string>
+    <string name="code">Code</string>
+    <string name="order_of_you">Order of you</string>
+    <string name="pending_and_approve">Pending Approve</string>
+    <string name="delivered">Delivered</string>
+    <string name="canceled">Canceled</string>
 
 </resources>

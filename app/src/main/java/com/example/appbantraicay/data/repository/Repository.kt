@@ -67,6 +67,10 @@ class Repository @Inject constructor(
     override val listDataNews: LiveData<List<New>>
         get() = _listDataNews
 
+    private val _listOderWaitingApproval = MutableLiveData<List<Order>>()
+    override val listOderWaitingApproval: LiveData<List<Order>>
+        get() = _listOderWaitingApproval
+
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         callApi {
@@ -164,10 +168,34 @@ class Repository @Inject constructor(
         }
     }
 
-    fun payCart(payCartBody: PayCartBody,idUser: Int?,onSuccess: (String) -> Unit){
+    override fun payCart(payCartBody: PayCartBody, idUser: Int?, onSuccess: (String) -> Unit){
         callApi {
             onSuccess.invoke(apiServices.payCart(payCartBody))
             _listCart.postValue(apiServices.getDataCartFromIdUser(idUser))
+        }
+    }
+
+    override fun getDataWaitingForApproval(){
+        callApi {
+            _listOderWaitingApproval.postValue(apiServices.getDataOderFromIdUser(sharePrefs.getUserInfo()?.id.toString()))
+        }
+    }
+
+    override fun getDataBeingAndTransported(){
+        callApi {
+            _listOderWaitingApproval.postValue(apiServices.getDataBeingAndTransported(sharePrefs.getUserInfo()?.id.toString()))
+        }
+    }
+
+    override fun getDataDelivered(){
+        callApi {
+            _listOderWaitingApproval.postValue(apiServices.getDataDelivered(sharePrefs.getUserInfo()?.id.toString()))
+        }
+    }
+
+    override fun getDataCanceled(){
+        callApi {
+            _listOderWaitingApproval.postValue(apiServices.getDataCanceled(sharePrefs.getUserInfo()?.id.toString()))
         }
     }
 

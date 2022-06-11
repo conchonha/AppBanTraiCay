@@ -75,8 +75,20 @@ interface ApiServices {
     ): List<User>
 
     @FormUrlEncoded
-    @POST("model/dondathang/donhangganday")
+    @POST("model/dondathang/choxetduyet")
     suspend fun getDataOderFromIdUser(@Field("idtaikhoan") idUser: String?): List<Order>
+
+    @FormUrlEncoded
+    @POST("model/dondathang/dangvanchuyen")
+    suspend fun getDataBeingAndTransported(@Field("idtaikhoan") idUser: String?): List<Order>
+
+    @FormUrlEncoded
+    @POST("model/dondathang/dagiaohang")
+    suspend fun getDataDelivered(@Field("idtaikhoan") idUser: String?): List<Order>
+
+    @FormUrlEncoded
+    @POST("model/dondathang/dahuy")
+    suspend fun getDataCanceled(@Field("idtaikhoan") idUser: String?): List<Order>
 
     //API Data User Admin
     @GET("model/taikhoan/gettaikhoan")

@@ -34,16 +34,16 @@ public class HeaderViewModel @Inject constructor(
     val edittextSearch = MutableLiveData<String>()
     val listCart = repository.listCart
 
-    private val _userInfo = MutableLiveData<Pair<String,String>>()
-    val userInfo : LiveData<Pair<String,String>> = _userInfo
+    private val _userInfo = MutableLiveData<Pair<String, String>>()
+    val userInfo: LiveData<Pair<String, String>> = _userInfo
 
-    private fun signOut(){
-        if(userInfo.value?.first != EMPTY){
+    private fun signOut() {
+        if (userInfo.value?.first != EMPTY) {
             sharePrefs.removeUser()
         }
     }
 
-    fun doAfterSearchChange(editable: Editable?){
+    fun doAfterSearchChange(editable: Editable?) {
         viewModelScope.launch {
             authRepository.search(editable.toString())
         }
@@ -54,22 +54,25 @@ public class HeaderViewModel @Inject constructor(
         _userInfo.postValue(checkUser(sharePrefs.getUserInfo()))
     }
 
-    private fun checkUser(userInfo: User?): Pair<String, String>{
-        return userInfo?.userName?.let { Pair(it,getString(R.string.sing_out))} ?: Pair("",getString(
-            R.string.sign_in))
+    private fun checkUser(userInfo: User?): Pair<String, String> {
+        return userInfo?.userName?.let { Pair(it, getString(R.string.sing_out)) } ?: Pair(
+            "", getString(
+                R.string.sign_in
+            )
+        )
     }
 
-    companion object{
+    companion object {
         private const val EMPTY = ""
     }
 
-    fun onClickSignOut(){
+    fun onClickSignOut() {
         navigateToDestination(R.id.login)
         signOut()
     }
 
     override fun onClickItemTitle(itemTitleId: Int) {
-        when(itemTitleId){
+        when (itemTitleId) {
             R.id.txt_home -> navigateToDestination(R.id.action_global_fragmentHome)
             R.id.txt_cart -> checkNavigate(R.id.fragmentCart)
             R.id.txt_news -> navigateToDestination(R.id.fragmentNew)
@@ -79,8 +82,8 @@ public class HeaderViewModel @Inject constructor(
         }
     }
 
-    private fun checkNavigate(actionId : Int){
-        if(sharePrefs.getUserInfo() != null){
+    private fun checkNavigate(actionId: Int) {
+        if (sharePrefs.getUserInfo() != null) {
             navigateToDestination(actionId)
             return
         }
