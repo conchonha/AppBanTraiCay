@@ -3,7 +3,7 @@
     <item android:id="@+id/menu_pending_approve"
         android:title="@string/pending_and_approve"/>
     <item android:id="@+id/being_transported"
-        android:title="being_transported"/>
+        android:title="@string/being_transported"/>
     <item android:id="@+id/delivered"
         android:title="@string/delivered"/>
     <item android:id="@+id/canceled"

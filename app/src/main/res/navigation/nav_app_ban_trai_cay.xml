@@ -65,8 +65,12 @@
         android:label="ProductFragment" />
     <fragment
         android:id="@+id/reportFragment"
-        android:name="com.example.appbantraicay.ui.admin.NewsFragment"
-        android:label="ReportFragment" />
+        android:name="com.example.appbantraicay.ui.user.fragment.news.NewsFragment"
+        android:label="ReportFragment" >
+        <action
+            android:id="@+id/action_reportFragment_to_fragmentDetailNews"
+            app:destination="@id/fragmentDetailNews" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.appbantraicay.ui.admin.AccountFragment"
@@ -109,10 +113,7 @@
         android:label="FragmentMyProfile">
 
     </fragment>
-    <fragment
-        android:id="@+id/fragmentNew"
-        android:name="com.example.appbantraicay.ui.user.fragment.FragmentNew"
-        android:label="FragmentNew" />
+
     <fragment
         android:id="@+id/fragmentOrder"
         android:name="com.example.appbantraicay.ui.user.fragment.order.FragmentOrder"
@@ -154,4 +155,13 @@
         android:id="@+id/fragmentLocation"
         android:name="com.example.appbantraicay.ui.user.fragment.home.FragmentLocation"
         android:label="FragmentLocation" />
+
+    <action android:id="@+id/action_global_fragmentOrder"
+        app:destination="@id/fragmentOrder"
+        app:popUpToInclusive="true"
+         app:popUpTo="@id/fragmentCart"/>
+    <fragment
+        android:id="@+id/fragmentDetailNews"
+        android:name="com.example.appbantraicay.ui.user.fragment.news.FragmentDetailNews"
+        android:label="FragmentDetailNews" />
 </navigation>

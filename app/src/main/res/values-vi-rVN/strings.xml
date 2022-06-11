@@ -126,5 +126,13 @@
     <string name="pending_and_approve">Chờ xét duyệt</string>
     <string name="delivered">Đã Giao Hàng</string>
     <string name="canceled">Đã Huỷ</string>
+    <string name="payment_option">Lụa Chọn Thanh Toán</string>
+    <string name="payment_when_multiplying">Thanh Toán Khi Nhận Hàng</string>
+    <string name="payment_with_visa">Thanh Toán Bằng Visa / Master </string>
+    <string name="information_order">Thông Tin Nhận Hàng</string>
+    <string name="send">Gửi</string>
+    <string name="being_transported">Đang Vận Chuyển</string>
+    <string name="query_hint_text_news">Nhập nội dung cần tìm</string>
+    <string name="content">Nội dung:</string>
 
 </resources>

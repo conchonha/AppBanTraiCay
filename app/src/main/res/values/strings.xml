@@ -125,5 +125,13 @@
     <string name="pending_and_approve">Pending Approve</string>
     <string name="delivered">Delivered</string>
     <string name="canceled">Canceled</string>
+    <string name="payment_option">Payment Option</string>
+    <string name="payment_when_multiplying">Payment when multiplying</string>
+    <string name="payment_with_visa">Payment with visa</string>
+    <string name="information_order">Information Order</string>
+    <string name="send">Send</string>
+    <string name="being_transported">Being Transported</string>
+    <string name="query_hint_text_news">Please enter name news</string>
+    <string name="content">Content</string>
 
 </resources>

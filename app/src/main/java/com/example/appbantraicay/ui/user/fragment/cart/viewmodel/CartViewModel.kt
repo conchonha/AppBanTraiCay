@@ -13,6 +13,7 @@ import com.example.appbantraicay.ui.user.interfaces.IActionItemAdapterCart
 import com.example.appbantraicay.utils.Const.STATUS_CART
 import com.example.appbantraicay.utils.SharePrefs
 import com.sangtb.androidlibrary.base.BaseViewModel
+import com.sangtb.androidlibrary.utils.SingleLiveEvent
 import com.sangtb.androidlibrary.utils.getNavigationBarHeight
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.SimpleDateFormat
@@ -39,20 +40,39 @@ public class CartViewModel @Inject constructor(
         }
         total
     }
+    val showDialogSing = SingleLiveEvent<Boolean>()
+    val showDialogWhenMultiplying = SingleLiveEvent<Boolean>()
 
     val email: LiveData<String?> = MutableLiveData(user?.email)
     val userName: LiveData<String?> = MutableLiveData(user?.userName)
     val phoneNumber = MutableLiveData<String>()
     val address = MutableLiveData<String>()
 
-    fun payNow() = navigateToDestination(R.id.action_fragmentCart_to_fragmentPay)
+    //click paynow screen detail
+    fun payNow() {
+        showDialogSing.postValue(true)
+    }
 
+    //click dialog option payment
+    fun paymentWhenMultiplying() {
+        showDialogSing.postValue(false)
+        showDialogWhenMultiplying.postValue(true)
+    }
+
+    //click dialog option payment
+    fun payWithVisa() {
+        showDialogSing.postValue(false)
+        navigateToDestination(R.id.action_fragmentCart_to_fragmentPay)
+    }
+
+    //click plush cart
     override fun plus(cart: Cart) {
         if (cart.number != 0) {
             updateCart(cart)
         }
     }
 
+    //click minus cart
     override fun minus(cart: Cart) {
         if (cart.number!! > INDEX_1) {
             updateCart(cart, true)
@@ -61,13 +81,16 @@ public class CartViewModel @Inject constructor(
         showToast(R.string.number_product_reached_minimum)
     }
 
+    //click remove cart
     override fun remove(cart: Cart) {
         repository.removeCartItem(cart.idProduct, user?.id) {
             showToast(R.string.remove_success)
         }
     }
 
+    //send payment -> server
     fun pay() {
+        showDialogWhenMultiplying.postValue(false)
         repository.payCart(
             PayCartBody(
                 user?.id.toString(), STATUS_CART, SimpleDateFormat("yyyy-MM-dd").format(
@@ -76,6 +99,7 @@ public class CartViewModel @Inject constructor(
             ), user?.id
         ) {
             showToast(R.string.pay_success)
+            navigateToDestination(R.id.action_global_fragmentOrder)
         }
     }
 

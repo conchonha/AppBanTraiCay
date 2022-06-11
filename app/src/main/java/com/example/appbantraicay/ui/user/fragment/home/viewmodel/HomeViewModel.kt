@@ -52,8 +52,10 @@ class HomeViewModel @Inject constructor(
     }
 
     override fun onClickDetail(product: ProductNew) {
-        _productNew.postValue(product)
-        navigateToDestination(R.id.action_fragmentHome_to_fragmentDetail)
+        repository.getDataProductFromIdBanner(product.id.toString()) {
+            _productNew.postValue(it)
+            navigateToDestination(R.id.action_fragmentHome_to_fragmentDetail)
+        }
     }
 
     fun bannerHomeClick(first: Int?, type: Int? = TYPE_HOME) {

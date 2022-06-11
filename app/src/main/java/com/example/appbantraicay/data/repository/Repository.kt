@@ -204,6 +204,14 @@ class Repository @Inject constructor(
         super.onDestroy(owner)
     }
 
+    suspend fun getDataSearchNews(string: String?){
+        try {
+            _listDataNews.postValue(apiServices.getDataSearchNews(string))
+        }catch (e : Exception){
+            e.printStackTrace()
+        }
+    }
+
     companion object {
         private const val TAG = "Repository"
     }

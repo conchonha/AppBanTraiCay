@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import com.example.appbantraicay.R
 import com.example.appbantraicay.databinding.FragmentCartBinding
+import com.example.appbantraicay.ui.dialog.DialogOptionPay
+import com.example.appbantraicay.ui.dialog.DialogWhenMultiplying
 import com.example.appbantraicay.ui.user.adapter.RecyclerAdapterCart
 import com.example.appbantraicay.ui.user.fragment.cart.viewmodel.CartViewModel
 import com.sangtb.androidlibrary.base.BaseFragment
@@ -19,6 +21,9 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 public class FragmentCart : BaseFragment<FragmentCartBinding, CartViewModel>() {
+    private val dialog by lazy { DialogOptionPay() }
+    private val dialogWhenMultiplying by lazy { DialogWhenMultiplying() }
+
     override val layoutId: Int
         get() = R.layout.fragment_cart
     override val viewModel: CartViewModel by activityViewModels()
@@ -34,6 +39,20 @@ public class FragmentCart : BaseFragment<FragmentCartBinding, CartViewModel>() {
         binding.recyclerCart.adapter = cartAdapter
         viewModel.listCart.observe(viewLifecycleOwner){
             cartAdapter.updateItems(it.toMutableList())
+        }
+
+        viewModel.showDialogSing.observe(viewLifecycleOwner){
+            if(dialog.isAdded) dialog.dismiss()
+            if(it){
+                dialog.show(childFragmentManager,TAG)
+            }
+        }
+
+        viewModel.showDialogWhenMultiplying.observe(viewLifecycleOwner){
+            if(dialogWhenMultiplying.isAdded) dialogWhenMultiplying.dismiss()
+            if(it){
+                dialogWhenMultiplying.show(childFragmentManager,TAG1)
+            }
         }
     }
 
@@ -53,5 +72,9 @@ public class FragmentCart : BaseFragment<FragmentCartBinding, CartViewModel>() {
                 }
             }
         }
+    }
+
+    companion object{
+        private const val TAG1 = "Fragment_Cart"
     }
 }

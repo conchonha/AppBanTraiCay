@@ -4,8 +4,9 @@ import com.example.appbantraicay.R
 import com.example.appbantraicay.data.model.responses.New
 import com.example.appbantraicay.databinding.ItemNewsBinding
 import com.sangtb.androidlibrary.base.BaseRecyclerViewAdapter
+import javax.inject.Inject
 
-class NewAdapter : BaseRecyclerViewAdapter<New, ItemNewsBinding>() {
+class NewAdapter @Inject constructor() : BaseRecyclerViewAdapter<New, ItemNewsBinding>() {
     override fun onBindViewHolder(holder: BaseViewHolder<ItemNewsBinding>, position: Int) {
         holder.binding.news = items[position]
         holder.binding.root.setOnClickListener {

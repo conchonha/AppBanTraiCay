@@ -75,7 +75,7 @@ public class HeaderViewModel @Inject constructor(
         when (itemTitleId) {
             R.id.txt_home -> navigateToDestination(R.id.action_global_fragmentHome)
             R.id.txt_cart -> checkNavigate(R.id.fragmentCart)
-            R.id.txt_news -> navigateToDestination(R.id.fragmentNew)
+            R.id.txt_news -> navigateToDestination(R.id.reportFragment)
             R.id.txt_profile -> checkNavigate(R.id.fragmentMyAccount)
             R.id.txt_order -> checkNavigate(R.id.fragmentOrder)
             R.id.txt_help_support -> navigateToDestination(R.id.fragmentLocation)

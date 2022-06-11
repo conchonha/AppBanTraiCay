@@ -90,6 +90,12 @@ interface ApiServices {
     @POST("model/dondathang/dahuy")
     suspend fun getDataCanceled(@Field("idtaikhoan") idUser: String?): List<Order>
 
+    @FormUrlEncoded
+    @POST("model/tintuc/timkimtintuc")
+    suspend fun getDataSearchNews(
+        @Field("timkim") strSearch: String?
+    ): List<New>
+
     //API Data User Admin
     @GET("model/taikhoan/gettaikhoan")
     suspend fun getListDataUser(): List<User>
