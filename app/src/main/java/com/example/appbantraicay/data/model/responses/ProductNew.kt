@@ -56,10 +56,6 @@ data class ProductNew(
     @Expose
     var dateSubmit: String? = null,
 
-    @SerializedName("ThongSoKyThuat")
-    @Expose
-    var thongSoKyThuat: String? = null,
-
     @SerializedName("id_danhmuc")
     @Expose
     var idCategory: Int? = null
@@ -72,7 +68,7 @@ data class ProductNew(
 
     override fun equals(other: Any?): Boolean {
         return (other as? ProductNew)?.let {
-            nameProduct == it.nameProduct && thongSoKyThuat == it.thongSoKyThuat
+            nameProduct == it.nameProduct
                     && discountDay == it.discountDay && numberDiscount == it.numberDiscount
                     && price == it.price && amount == it.amount && idCategory == it.idCategory
                     && dateSubmit == it.dateSubmit && description == it.description && descriptionPicture == it.descriptionPicture

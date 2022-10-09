@@ -13,10 +13,7 @@ class DataProduct(
     ) var tenSanPham: String,
     @Expose
     @SerializedName("HinhAnhSanPham") var hinhAnhSanPham: String,
-    @Expose
-    @SerializedName(
-        "ThongSoKyThuat"
-    ) var thongSoKyThuat: String,
+
     @Expose
     @SerializedName("Gia") var gia: Int,
     @Expose
